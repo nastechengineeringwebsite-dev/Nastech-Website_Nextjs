@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../../.flowbite-react/class-list.json";
+
+@theme{
+    /* Container Size */
+    --spacing-container: 1150px;
+
+    /* colors */
+    --color-text_primary: #131495;
+    --color-text_secondary: #18296E;
+    --color-text_tertiary: #1F1F1F;
+
+    --color-bg_primary: #EFF1FF;
+    --color-bg_secondary: #161F86;
+    --color-bg_tertiary: #18296E;
+
+    --color-button_yellow: #FFA51D;
+    --color-button_hover_yellow: #FFD493;
+
+    /* font */
+    --font-poppins: "Poppins", sans-serif;
+
+    /* Shadow */
+    --shadow-around: 0px 0px 38px -8px rgba(0,0,0,0.75);
+    --shadow-around_small: 0px 6px 15px 1px rgba(25,24,56,0.29);
+}
