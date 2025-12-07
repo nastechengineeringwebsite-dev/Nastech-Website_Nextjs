@@ -27,7 +27,7 @@ const Product_Card = ({
                 }
             >   
             
-                <Link href={`/activites/${pageLink}`}>
+                <Link href={`/${pageLink}`}>
                 
                     <div
                         className={
