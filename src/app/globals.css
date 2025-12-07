@@ -24,4 +24,8 @@
     /* Shadow */
     --shadow-around: 0px 0px 38px -8px rgba(0,0,0,0.75);
     --shadow-around_small: 0px 6px 15px 1px rgba(25,24,56,0.29);
+
+    /* video::-webkit-media-controls {
+        display: none !important;
+      } */
 }

@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google"
 import Footer from "./components/Footer";
 import { ToastContainer, Slide } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import InitialLoadingAnimation from "./components/InitialLoading";
 
 const poppins = Poppins({
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
 			</head>
 			
 			<body className={`${poppins.className} antialiased`}>
+				<InitialLoadingAnimation/>
 			<ToastContainer
 					className={"w-[400px] text-center font-semibold text-[16px] duration-700"}
 					position='top-center'
