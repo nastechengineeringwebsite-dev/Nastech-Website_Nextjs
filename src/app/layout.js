@@ -6,6 +6,7 @@ import { ToastContainer, Slide } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import InitialLoadingAnimation from "./components/InitialLoading";
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const poppins = Poppins({
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
 				<Footer />
 
 				<Analytics/>
+				<SpeedInsights />
 
 			</body>
 		</html>
