@@ -175,10 +175,10 @@ const Navbar = () => {
 						<Flex className='lg:py-4 py-5 justify-between items-center flex'>
 							<Link href={"/"}>
 								<Image
-									src={"/images/Logo.jpg"}
+									src={"/images/Nas Tech Logo.png"}
 									width={148}
 									height={118}
-									alt={"Nas Tech Logo"}
+									alt={"Nas Tech Engineering Logo"}
 									className={"lg:w-24 md:w-20 w-16"}
 									loading="eager"
 									priority

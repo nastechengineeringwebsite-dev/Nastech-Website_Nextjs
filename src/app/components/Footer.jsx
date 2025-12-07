@@ -22,8 +22,8 @@ const Footer = () => {
 						<div className='lg:w-[25%] md:w-[80%] w-[60%]'>
 							<Link href={"/"}>
 								<Image
-									src={"/images/Logo.jpg"}
-                                    alt={"Nas Tech Logo"}
+									src={"/images/Nas Tech Logo.png"}
+                                    alt={"Nas Tech Engineering Logo"}
 									className='lg:w-[70%] md:w-[40%] w-[70%]  mx-auto lg:mx-0 lg:mb-0 mb-6'
 									width={584}
 									height={468}
