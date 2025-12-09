@@ -6,7 +6,7 @@ import "react-multi-carousel/lib/styles.css";
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
 import Image from 'next/image';
 
-const ImageSlider = ({imagesLink}) => {
+const ImageSlider = ({imagesLink, folder, image_names}) => {
 
     const responsive = {
         desktop: {
@@ -83,8 +83,8 @@ const ImageSlider = ({imagesLink}) => {
                     return(
                         <Image
                             key={index}
-                            src={`/images/AboutUs/${link}`}
-                            alt={'NAS Tech Engineering About Images'}
+                            src={`/images/${folder}/${link}`}
+                            alt={image_names}
                             width={1000}
                             height={700}
                             className='w-full h-full object-cover rounded-lg'/>
