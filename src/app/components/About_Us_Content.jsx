@@ -18,7 +18,7 @@ const About_Us_Content = () => {
         NAS Tech Engineering is a forward-thinking engineering solutions and training provider, specializing in CAD/CAM design, CNC programming, CAE, engineering analysis, and hardware design solutions. With over a decade of combined industry experience, we deliver hands-on training and consultancy that bridge the gap between design and production, equipping engineers, technicians, and organizations with practical, industry-ready skills. Our focus spans all types of engineering design solutions, with the purpose of optimizing for Design for Manufacturing (DFM). Leveraging advanced tools, including 3D printing, 3D scanning, and rapid prototyping, we transform ideas into manufacturable, high-quality products while maintaining the highest standards of precision, innovation, and excellence.
         </p>
         <Title className={"lg:mt-10 mt-4"} title={"Some of Our Work"}></Title>
-        <ImageSlider folder = {"AboutUs"} imagesLink={["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"]} image_names={"Nas Tech Enigeering Work Samples"}></ImageSlider>
+        <ImageSlider folder = {"AboutUs"} imagesLink={["image1.webp", "image2.webp", "image3.webp", "image4.webp", "image5.webp"]} image_names={"Nas Tech Enigeering Work Samples"}></ImageSlider>
       </Flex>
     </Container>
   );

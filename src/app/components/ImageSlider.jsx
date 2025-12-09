@@ -79,7 +79,7 @@ const ImageSlider = ({ imagesLink, folder, image_names }) => {
           return (
             <Image
               key={index}
-              src={`/images/image1.png`}
+              src={`/images/${folder}/${link}`}
               alt={image_names}
               width={1000}
               height={700}
