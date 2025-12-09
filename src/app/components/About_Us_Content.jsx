@@ -10,7 +10,7 @@ import ImageSlider from "./ImageSlider";
 const About_Us_Content = () => {
   return (
     <Container>
-      <Title className={"lg:mt-10 mt-32"} title={"About Us"} primaryTitle = {true}></Title>
+      <Title className={"lg:mt-10 mt-32"} title={"About Nas Tech Engineering"} primaryTitle = {true}></Title>
       <Flex
         className={"flex flex-col gap-4 text-text_tertiary font-medium text-justify mb-40"}
       >

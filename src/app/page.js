@@ -12,8 +12,8 @@ export default function Home() {
     <Flex className={"flex-col gap-y-[100px]"}>
     <Banner/>
     <Home_About_Us/>
-    <Home_Engineering_Solution/>
     <Home_Technical_Trainning/>
+    <Home_Engineering_Solution/>
     <ContactCard/>
     </Flex>
     </>

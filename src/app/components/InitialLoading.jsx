@@ -1,20 +1,28 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from "react"
-import Flex from "./Flex"
+import React, { useEffect, useState } from "react";
+import Flex from "./Flex";
 
 const InitialLoadingAnimation = ({ contentRef }) => {
-  const [isClient, setIsClient] = useState(false)
-  const [showScreen, setShowScreen] = useState(true)
-  const [fadeOut, setFadeOut] = useState(false)
+  const [isClient, setIsClient] = useState(false);
+  const [showScreen, setShowScreen] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    setIsClient(true)
-  }, [])
+    setIsClient(true);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   const handleVideoEnd = () => {
-    setFadeOut(true)
-    setTimeout(() => setShowScreen(false), 1000)
+    setFadeOut(true);
+    setTimeout(() => {
+      setShowScreen(false);
+      document.body.style.overflow = "";
+    }, 1000);
   };
 
   return (
@@ -37,7 +45,7 @@ const InitialLoadingAnimation = ({ contentRef }) => {
                 playsInline
                 preload="auto"
                 className="w-full h-full object-cover pointer-events-none outline-none border-none"
-                onEnded={handleVideoEnd} 
+                onEnded={handleVideoEnd}
               >
                 <source
                   src="/videos/Nas Tech Logo Animation.mp4"
