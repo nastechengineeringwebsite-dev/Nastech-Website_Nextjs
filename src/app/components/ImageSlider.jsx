@@ -82,7 +82,7 @@ const ImageSlider = ({ imagesLink, folder, image_names }) => {
               src={`/images/${folder}/${link}`}
               alt={image_names}
               width={1000}
-              height={700}
+              height={562}
               className="w-full h-full object-cover rounded-lg"
             />
           );
