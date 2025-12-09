@@ -79,7 +79,7 @@ const ImageSlider = ({ imagesLink, folder, image_names }) => {
           return (
             <Image
               key={index}
-              src={`/images/Nas Tech Logo.png`}
+              src={`/images/image1.png`}
               alt={image_names}
               width={1000}
               height={700}
