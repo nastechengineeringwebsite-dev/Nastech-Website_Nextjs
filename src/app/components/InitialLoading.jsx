@@ -14,14 +14,14 @@ const InitialLoadingAnimation = ({ contentRef }) => {
 
   const handleVideoEnd = () => {
     setFadeOut(true)
-    setTimeout(() => setShowScreen(false), 4000)
+    setTimeout(() => setShowScreen(false), 1000)
   };
 
   return (
     <>
       {showScreen && (
         <div
-          className={`w-full h-full flex fixed top-0 left-0 bg-[#ebebeb] items-center justify-center z-[999] transition-opacity duration-1000 ${
+          className={`w-full h-full flex fixed top-0 left-0 bg-[#ebebeb] items-center justify-center z-[999] transition-opacity duration-2000 ${
             fadeOut ? "opacity-0" : "opacity-100"
           }`}
           id="loading-screen"
