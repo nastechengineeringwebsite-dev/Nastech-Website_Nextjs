@@ -79,21 +79,27 @@ const Footer = () => {
                   <SocialMediaIcons className={"text-white"}></SocialMediaIcons>
                 </ListItem>
                 <ListItem className={" font-medium text-lg text-white"}>
-                  <Flex className={"gap-3 items-center flex"}>
+                  
                     <a
-                      href="mailto: nastech1473@gmail.com"
+                      href="mailto:nastech1473@gmail.com?cc=nastechengineering.website@gmail.com"
                       target={"_blank"}
                     >
+                      <Flex className={"gap-3 items-center flex"}>
+
                       <IoMdMail className={" h-6 w-6"} />
-                    </a>
                     <span>nastech1473@gmail.com</span>
-                  </Flex>
+                      </Flex>
+                    </a>
+                  
                 </ListItem>
                 <ListItem className={" font-medium text-lg text-white"}>
+                  <a href="tel:+8801726943940">
+
                   <Flex className={"gap-3 items-center flex"}>
                     <FaPhoneAlt className={"text-white h-5 w-6"} />
                     <span>+880 1726-943940</span>
                   </Flex>
+                  </a>
                 </ListItem>
                 <ListItem className={" font-medium text-[16px] text-white"}>
                   <Flex className={"gap-3 items-center flex"}>

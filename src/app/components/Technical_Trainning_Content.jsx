@@ -14,8 +14,8 @@ const Technical_Trainning_Content = () => {
       ></Title>
       <Flex className={"flex flex-wrap justify-center gap-x-10 gap-y-16 mb-40"}>
         <Product_Card
-          courseDuration={"1 year"}
-          courseFee={"10,000 BDT"}
+          courseDuration={"4 Months"}
+          courseFee={"20,000 BDT"}
           cardImage={"Technical Solutions/solidworks_industrial_beginnar_to_intermediate.jpg"}
           heading={"SOLIDWORKS Industrial: Beginner to Intermediate"}
           pageLink={"nas_technical_trainning/solidworks_industrial_beginner_to_intermediate"}
