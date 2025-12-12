@@ -69,6 +69,7 @@ const Home_Technical_Trainning = () => {
           <Container>
             <Title
               title="NAS Tech Technical Training  Program"
+              className={"mt-10 lg:mt-0"}
             ></Title>
     
             <div className="relative overflow-visible">

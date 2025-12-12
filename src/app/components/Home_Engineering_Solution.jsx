@@ -70,7 +70,6 @@ const Home_Engineering_Solution = () => {
       <Container>
         <Title
           title="NAS Tech 360 Engineering Solution"
-          className={"mt-10 lg:mt-0"}
         ></Title>
 
         <div className="relative overflow-visible">
