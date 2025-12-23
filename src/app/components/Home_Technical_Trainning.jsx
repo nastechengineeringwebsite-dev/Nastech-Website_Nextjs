@@ -98,49 +98,49 @@ const Home_Technical_Trainning = () => {
                   heading={"SOLIDWORKS Industrial:Advanced Learning "}
                   shortDis={`This advanced program is for professionals looking to enhance their SOLIDWORKS skills and tackle more complex design challenges...`}
                   cardImage={"Technical Solutions/solidworks_industrial_advanced_learning.jpg"}
-                  pageLink={"charting_saturns_secrets_webinar"}
+                  pageLink={"nas_technical_trainning/solidworks_industrial_advanced_learning"}
                 />
                 <Home_Product_Card
                   heading={"SOLIDWORKS Industrial: Professional"}
                   shortDis={`Our professional-level course is tailored for engineers seeking expert mastery in SOLIDWORKS Industrial applications. It focuses on full-scale product design...`}
                   cardImage={"Technical Solutions/solidworks_industrial_professional.jpg"}
-                  pageLink={"charting_saturns_secrets_webinar"}
+                  pageLink={"nas_technical_trainning/solidworks_industrial_professional"}
                 />
                 <Home_Product_Card
                   heading={"SOLIDWORKS Industrial: Expert "}
                   shortDis={`Master the most complex design challenges. Our expert-level course moves beyond standard modeling to cover advanced surfacing, complex assembly design...`}
                   cardImage={"Technical Solutions/solidworks_industrial_expert.jpg"}
-                  pageLink={"charting_saturns_secrets_webinar"}
+                  pageLink={"nas_technical_trainning/solidworks_industrial_expert"}
                 />
                 <Home_Product_Card
                   heading={"CAM and CNC: Beginner to Intermediate"}
                   shortDis={`Start your journey from digital design to physical reality. This course provides a hands-on foundation in Computer-Aided Manufacturing (CAM) and...`}
                   cardImage={"Technical Solutions/cam_and_cnc_beginner_to_industrial.jpg"}
-                  pageLink={"charting_saturns_secrets_webinar"}
+                  pageLink={"nas_technical_trainning/cam_and_cnc_beginner_to_intermediate"}
                 />
                 <Home_Product_Card
                   heading={"CAM and CNC: Professional"}
                   shortDis={`Optimize your workflow for precision and production. Our professional-level training focuses on advanced CAM and CNC techniques...`}
                   cardImage={"Technical Solutions/cam_and_cnc_professional.jpg"}
-                  pageLink={"charting_saturns_secrets_webinar"}
+                  pageLink={"nas_technical_trainning/cam_and_cnc_professional"}
                 />
                 <Home_Product_Card
                   heading={"Beginner to Intermediate Advance Learning+ Beginner to Intermediate CAM"}
                   shortDis={`Start your fabrication journey with our comprehensive Beginner to Intermediate CAM course. Learn the essential skills to take your ...`}
                   cardImage={"Technical Solutions/cam_and_cnc_advance.jpg"}
-                  pageLink={"charting_saturns_secrets_webinar"}
+                  pageLink={"nas_technical_trainning/beginner_to_intermediate_advanced_learning_and_cam_operation"}
                 />
                 <Home_Product_Card
                   heading={"Professional All"}
                   shortDis={`Achieve total expertise with our all-inclusive Professional All training. This comprehensive program combines advanced design, analysis...`}
                   cardImage={"Technical Solutions/professional_all.jpg"}
-                  pageLink={"charting_saturns_secrets_webinar"}
+                  pageLink={"nas_technical_trainning/professional_all"}
                 />
                 <Home_Product_Card
                   heading={"Engineering Design Analysis and Simulation: Beginner"}
                   shortDis={`Gain the foundational skills to test your ideas before you build them. Our beginner course in Engineering Design Analysis and Simulation...`}
                   cardImage={"Technical Solutions/engineering_design_analysis_beginnar.jpg"}
-                  pageLink={"charting_saturns_secrets_webinar"}
+                  pageLink={"nas_technical_trainning/engineering_design_analysis_and_simulation_beginner"}
                 />
                 {/* <Home_Product_Card
                   heading={"Engineering Design Analysis and Simulation: Intermediate  "}

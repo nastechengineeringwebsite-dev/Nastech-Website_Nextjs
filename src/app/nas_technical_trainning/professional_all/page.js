@@ -9,9 +9,9 @@ import { HiArrowSmLeft } from "react-icons/hi";
 import Course_Information from "@/app/components/Course_Information";
 
 export const metadata = {
-	title: "Solidworks Industrial: Beginner to Intermediate | Nas Tech Engineering",
+	title: "Professional All | Nas Tech Engineering",
 	description:
-		"Nas Tech Engineering provides hands-on trainning for beginners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+		"Nas Tech Engineering provides hands-on trainning for Advanced learners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
 	
 };
 
@@ -29,7 +29,7 @@ const page = () => {
       </Flex>
       <Title
         className={"mt-10"}
-        title={"Solidworks Industrial: Beginner to Intermediate"}
+        title={"Professional All"}
         primaryTitle={true}
       ></Title>
       <Flex
@@ -38,14 +38,14 @@ const page = () => {
         }
       >
         <p>
-        This course is designed for engineers and designers who are new to SOLIDWORKS or have basic experience. Participants will learn core modeling techniques, assembly creation, and 2D/3D drawing essentials, building a strong foundation in industrial design. By the end of the course, learners will be able to create accurate, production-ready models and understand best practices for efficient design workflows.
+        Achieve total expertise with our all-inclusive Professional All training. This comprehensive program combines advanced design, analysis, and manufacturing techniques to optimize your entire workflow. Perfect for professionals aiming to lead complex projects, you will gain the skills to maximize efficiency and produce high-quality, industrial-grade components across a variety of disciplines.
         </p>
 
         <Course_Information
-          price="20000 BDT"
-          duration="4 Months"
+        //   duration={"TBD"}
+        //   price={""}
           available_seats={"12"}
-          batch_slots={"2"}
+          batch_slots={"1"}
           status="Ended"
           
         />

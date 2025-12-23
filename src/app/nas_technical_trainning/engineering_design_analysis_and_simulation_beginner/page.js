@@ -9,9 +9,9 @@ import { HiArrowSmLeft } from "react-icons/hi";
 import Course_Information from "@/app/components/Course_Information";
 
 export const metadata = {
-	title: "Solidworks Industrial: Beginner to Intermediate | Nas Tech Engineering",
+	title: "Engineering Design Analysis and Simulation: Beginner | Nas Tech Engineering",
 	description:
-		"Nas Tech Engineering provides hands-on trainning for beginners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+		"Nas Tech Engineering provides hands-on trainning for Advanced learners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
 	
 };
 
@@ -29,7 +29,7 @@ const page = () => {
       </Flex>
       <Title
         className={"mt-10"}
-        title={"Solidworks Industrial: Beginner to Intermediate"}
+        title={"Engineering Design Analysis and Simulation: Beginner"}
         primaryTitle={true}
       ></Title>
       <Flex
@@ -38,14 +38,14 @@ const page = () => {
         }
       >
         <p>
-        This course is designed for engineers and designers who are new to SOLIDWORKS or have basic experience. Participants will learn core modeling techniques, assembly creation, and 2D/3D drawing essentials, building a strong foundation in industrial design. By the end of the course, learners will be able to create accurate, production-ready models and understand best practices for efficient design workflows.
+        Gain the foundational skills to test your ideas before you build them. Our beginner course in Engineering Design Analysis and Simulation teaches you how to analyze and predict the performance of your designs. Learn to identify potential flaws and optimize your concepts using industry-standard tools, preparing you for more advanced engineering challenges.
         </p>
 
         <Course_Information
-          price="20000 BDT"
-          duration="4 Months"
+        //   duration={"TBD"}
+        //   price={""}
           available_seats={"12"}
-          batch_slots={"2"}
+          batch_slots={"1"}
           status="Ended"
           
         />

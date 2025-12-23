@@ -9,7 +9,7 @@ import { HiArrowSmLeft } from "react-icons/hi";
 import Course_Information from "@/app/components/Course_Information";
 
 export const metadata = {
-	title: "Solidworks Industrial: Beginner to Intermediate | Nas Tech Engineering",
+	title: "Solidworks Industrial: Expert | Nas Tech Engineering",
 	description:
 		"Nas Tech Engineering provides hands-on trainning for beginners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
 	
@@ -29,7 +29,7 @@ const page = () => {
       </Flex>
       <Title
         className={"mt-10"}
-        title={"Solidworks Industrial: Beginner to Intermediate"}
+        title={"Solidworks Industrial: Expert"}
         primaryTitle={true}
       ></Title>
       <Flex
@@ -38,14 +38,13 @@ const page = () => {
         }
       >
         <p>
-        This course is designed for engineers and designers who are new to SOLIDWORKS or have basic experience. Participants will learn core modeling techniques, assembly creation, and 2D/3D drawing essentials, building a strong foundation in industrial design. By the end of the course, learners will be able to create accurate, production-ready models and understand best practices for efficient design workflows.
+        Master the most complex design challenges. Our expert-level course moves beyond standard modeling to cover advanced surfacing, complex assembly design, and simulation. Learn to solve real-world industrial problems and prepare for professional certification. This training is your definitive step from skilled user to technical leader in product design.
         </p>
 
         <Course_Information
-          price="20000 BDT"
-          duration="4 Months"
+       
           available_seats={"12"}
-          batch_slots={"2"}
+          batch_slots={"1"}
           status="Ended"
           
         />
