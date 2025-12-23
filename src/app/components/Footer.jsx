@@ -53,16 +53,16 @@ const Footer = () => {
             <div className="lg:w-[25%] md:w-[30%] w-[45%]">
               <List className={"flex-col lg:gap-6 gap-4 flex"}>
                 <ListItem className={" font-medium text-lg text-white"}>
-                  <Link href={"/"}>3D Printing</Link>
+                  <Link href={"/nas_360_engineering_solutions/3d_printing"}>3D Printing</Link>
                 </ListItem>
                 <ListItem className={" font-medium text-lg text-white"}>
-                  <Link href={"/about"}>3D Scanning</Link>
+                  <Link href={"/nas_360_engineering_solutions/3d_scanning"}>3D Scanning</Link>
                 </ListItem>
                 <ListItem className={" font-medium text-lg text-white"}>
-                  <Link href={"/committee"}>Mold Design</Link>
+                  <Link href={"/nas_360_engineering_solutions/mold_design_and_analysis"}>Mold Design</Link>
                 </ListItem>
                 <ListItem className={" font-medium text-lg text-white"}>
-                  <Link href={"/activites"}>Product Prototyping</Link>
+                  <Link href={"/nas_360_engineering_solutions/product_concept_to_prototype_design"}>Product Prototyping</Link>
                 </ListItem>
                 <ListItem className={" font-medium text-lg text-white"}>
                   <Link href={"/contact"}>Contact Us</Link>

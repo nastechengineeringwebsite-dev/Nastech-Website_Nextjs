@@ -91,32 +91,32 @@ const Home_Engineering_Solution = () => {
             <Home_Product_Card
               heading={"Product Concept to Prototyping Design "}
               shortDis={`From initial concept to functional prototype, we provide hands-on design and prototyping solutions using CAD/CAM and CNC technologies...`}
-              cardImage={"360 Engineering Solutions/3d Printing.jpg"}
-              pageLink={"charting_saturns_secrets_webinar"}
+              cardImage={"360 Engineering Solutions/Product Design And Prototype/product_design_to_prototype.jpg"}
+              pageLink={"nas_360_engineering_solutions/product_concept_to_prototype_design"}
             />
             <Home_Product_Card
               heading={"2D and 3D drawing"}
               shortDis={`NAS Tech Engineering provides precise 2D and 3D drawing services for engineering and manufacturing. Our 2D drawings ensure clear technical...`}
-              cardImage={"360 Engineering Solutions/3d Printing.jpg"}
-              pageLink={"charting_saturns_secrets_webinar"}
+              cardImage={"360 Engineering Solutions/2d to 3d drawing/2d_to_3d_drawing.jpg"}
+              pageLink={"nas_360_engineering_solutions/2d_to_3d_design"}
             />
             <Home_Product_Card
               heading={"3D Printing "}
               shortDis={`At into physical prototypes or functional parts. Using cutting-edge additive manufacturing technologies, we produce high-precision...`}
-              cardImage={"360 Engineering Solutions/3d Printing.jpg"}
-              pageLink={"charting_saturns_secrets_webinar"}
+              cardImage={"360 Engineering Solutions/3d Printing/3d_printing.jpg"}
+              pageLink={"nas_360_engineering_solutions/3d_printing"}
             />
             <Home_Product_Card
               heading={"3D Scanning "}
               shortDis={`Our 3D scanning services enable accurate reverse engineering, quality inspection, and digital modeling of existing components. By capturing...`}
-              cardImage={"360 Engineering Solutions/3d Printing.jpg"}
-              pageLink={"charting_saturns_secrets_webinar"}
+              cardImage={"360 Engineering Solutions/3d Scanning/3d_scanning.jpg"}
+              pageLink={"nas_360_engineering_solutions/3d_scanning"}
             />
             <Home_Product_Card
               heading={"Mold Design , Analysis and Manufacturing"}
               shortDis={`At NAS Tech Engineering, we specialize in mold design, analysis, and manufacturing for a wide range of industrial applications...`}
-              cardImage={"360 Engineering Solutions/3d Printing.jpg"}
-              pageLink={"charting_saturns_secrets_webinar"}
+              cardImage={"360 Engineering Solutions/Mold Design And Analysis/mold_design_and_analysis.jpg"}
+              pageLink={"nas_360_engineering_solutions/mold_design_and_analysis"}
             />
           </Carousel>
         </div>
