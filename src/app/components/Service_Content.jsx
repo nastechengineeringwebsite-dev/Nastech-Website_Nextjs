@@ -41,7 +41,7 @@ const Service_Content = ({
 		<div className=' mb-28'>
 			<Flex
 				className={
-					"flex mt-30 md:mt-32 lg:mt-10 items-center  font-bold text-darker_blue text-[14px] gap-1"
+					"flex mt-36 md:mt-32 lg:mt-10 items-center  font-bold text-darker_blue text-[14px] gap-1"
 				}
 			>
                 

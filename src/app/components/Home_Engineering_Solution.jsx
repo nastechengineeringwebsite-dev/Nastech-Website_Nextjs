@@ -102,7 +102,7 @@ const Home_Engineering_Solution = () => {
             />
             <Home_Product_Card
               heading={"3D Printing "}
-              shortDis={`At into physical prototypes or functional parts. Using cutting-edge additive manufacturing technologies, we produce high-precision...`}
+              shortDis={`For physical prototypes or functional parts NAS Tech Engineering provides 3D printing services. Using cutting-edge additive manufacturing technologies...`}
               cardImage={"360 Engineering Solutions/3d Printing/3d_printing.jpg"}
               pageLink={"nas_360_engineering_solutions/3d_printing"}
             />
@@ -113,7 +113,7 @@ const Home_Engineering_Solution = () => {
               pageLink={"nas_360_engineering_solutions/3d_scanning"}
             />
             <Home_Product_Card
-              heading={"Mold Design , Analysis and Manufacturing"}
+              heading={"Mold Design , Analysis and Manufacturing Service"}
               shortDis={`At NAS Tech Engineering, we specialize in mold design, analysis, and manufacturing for a wide range of industrial applications...`}
               cardImage={"360 Engineering Solutions/Mold Design And Analysis/mold_design_and_analysis.jpg"}
               pageLink={"nas_360_engineering_solutions/mold_design_and_analysis"}

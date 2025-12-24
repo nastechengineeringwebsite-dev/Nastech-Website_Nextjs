@@ -43,9 +43,9 @@ const Nas_360_Solutions_Content = () => {
         <Product_Card
           
           cardImage={"360 Engineering Solutions/Mold Design And Analysis/mold_design_and_analysis.jpg"}
-          heading={"Mold Design , Analysis and Manufacturing "}
+          heading={"Mold Design , Analysis and Manufacturing Service"}
           pageLink={"nas_360_engineering_solutions/mold_design_and_analysis"}
-          shortDis={"Our 3D scanning services enable accurate reverse engineering, quality inspection, and digital modeling of existing components. By capturing precise geometries and dimensions, we convert physical objects into detailed 3D digital models suitable for CAD, simulation, and modification. This technology enhances efficiency, reduces errors, and supports faster product iteration and design optimization."}
+          shortDis={"At NAS Tech Engineering, we specialize in mold design, analysis, and manufacturing for a wide range of industrial applications. Our team combines CAD/CAM modeling, engineering analysis (CAE), and precision manufacturing techniques to develop high-quality molds optimized for efficiency, durability, and production performance. We perform thorough mold flow simulations and structural analysis to ensure designs meet manufacturing requirements and minimize defects. From concept to finished mold, our services support rapid prototyping, production-ready tooling, and Design for Manufacturing (DFM) principles, delivering reliable solutions for complex industrial components."}
           
         />
         
