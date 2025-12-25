@@ -120,14 +120,14 @@ const Footer = () => {
         >
           <h3>
             &copy; 2025 Nas Tech Engineering. All Rights Reserved.&nbsp;
-            <span>
+            {/* <span>
               <Link
                 className="border-b-[2px] border-text_primary"
                 href={"/credits"}
               >
                 Credits
               </Link>
-            </span>
+            </span> */}
           </h3>
         </Flex>
       </div>
