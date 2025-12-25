@@ -7,9 +7,12 @@ import Flex from "./Flex";
 import ImageSlider from "./ImageSlider";
 
 
+
 const About_Us_Content = () => {
   return (
     <Container>
+      
+
       <Title className={"lg:mt-10 mt-32"} title={"About Nas Tech Engineering"} primaryTitle = {true}></Title>
       <Flex
         className={"flex flex-col gap-4 text-text_tertiary font-medium text-justify mb-40"}
@@ -20,6 +23,7 @@ const About_Us_Content = () => {
         <Title className={"lg:mt-10 mt-4"} title={"Some of Our Work"}></Title>
         <ImageSlider folder = {"AboutUs"} imagesLink={["image1.webp", "image2.webp", "image3.webp", "image4.webp", "image5.webp"]} image_names={"Nas Tech Enigeering Work Samples"}></ImageSlider>
       </Flex>
+      
     </Container>
   );
 };

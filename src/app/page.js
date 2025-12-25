@@ -1,3 +1,4 @@
+import AnimatePage from "./components/AnimatePage";
 import Banner from "./components/Banner";
 import ContactCard from "./components/ContactCard";
 import Container from "./components/Container";
@@ -9,13 +10,18 @@ import Home_Technical_Trainning from "./components/Home_Technical_Trainning";
 export default function Home() {
   return (
     <>
-    <Flex className={"flex-col gap-y-[100px]"}>
-    <Banner/>
-    <Home_About_Us/>
-    <Home_Technical_Trainning/>
-    <Home_Engineering_Solution/>
-    <ContactCard/>
-    </Flex>
+      <Flex className={"flex flex-col gap-y-[100px]"}>
+        <Banner />
+        <AnimatePage>
+          <Flex className={"flex flex-col gap-y-[100px]"}>
+
+          <Home_About_Us />
+          <Home_Technical_Trainning />
+          <Home_Engineering_Solution />
+          <ContactCard />
+          </Flex>
+        </AnimatePage>
+      </Flex>
     </>
   );
 }

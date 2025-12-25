@@ -1,5 +1,6 @@
 import React from 'react'
 import Nas_360_Solutions_Content from '../components/Nas_360_Solutions_Content'
+import AnimatePage from '../components/AnimatePage';
 
 export const metadata = {
 	title: "NAS Tech 360 Solutions | Nas Tech Engineering",
@@ -9,7 +10,10 @@ export const metadata = {
 };
 const page = () => {
   return (
-    <Nas_360_Solutions_Content/>
+    <AnimatePage>
+
+      <Nas_360_Solutions_Content/>
+    </AnimatePage>
   )
 }
 

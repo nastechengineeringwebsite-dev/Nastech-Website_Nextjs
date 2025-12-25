@@ -15,6 +15,7 @@
     "axios": "^1.11.0",
     "emailjs": "^4.0.3",
     "flowbite-react": "^0.12.7",
+    "framer-motion": "^12.23.26",
     "next": "^15.5.7",
     "react": "19.1.0",
     "react-dom": "19.1.0",

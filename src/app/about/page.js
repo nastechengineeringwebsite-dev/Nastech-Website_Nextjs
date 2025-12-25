@@ -1,5 +1,6 @@
 import React from 'react'
 import About_Us_Content from '../components/About_Us_Content'
+import AnimatePage from '../components/AnimatePage';
 
 export const metadata = {
 	title: "About | Nas Tech Engineering",
@@ -10,7 +11,10 @@ export const metadata = {
 
 const page = () => {
   return (
-    <About_Us_Content/>
+    <AnimatePage>
+
+      <About_Us_Content/>
+    </AnimatePage>
   )
 }
 

@@ -65,7 +65,7 @@ const Home_Technical_Trainning = () => {
       };
       
       return (
-        <section className={"mb-20"}>
+        <section className={""}>
           <Container>
             <Title
               title="NAS Tech Technical Training  Program"

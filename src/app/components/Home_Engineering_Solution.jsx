@@ -81,7 +81,7 @@ const Home_Engineering_Solution = () => {
             transitionDuration={200}
             swipeable={false}
             draggable={false}
-            containerClass="flex py-5" // centers whole carousel
+            containerClass="flex py-5"
             itemClass="px-2"
             renderButtonGroupOutside={true}
             customButtonGroup={<ButtonGroup />}

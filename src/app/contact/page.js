@@ -1,5 +1,6 @@
 import React from 'react'
 import ContactCard from '../components/ContactCard'
+import AnimatePage from '../components/AnimatePage';
 
 export const metadata = {
 	title: "Contact Us | Nas Tech Engineering",
@@ -10,7 +11,10 @@ export const metadata = {
 
 const page = () => {
   return (
-    <ContactCard/>
+    <AnimatePage>
+
+      <ContactCard/>
+    </AnimatePage>
   )
 }
 
