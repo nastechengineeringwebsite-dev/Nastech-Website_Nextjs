@@ -12,7 +12,7 @@ import AnimatePage from "@/app/components/AnimatePage";
 export const metadata = {
   title: "CAM and CNC: Beginner to Intermediate | Nas Tech Engineering",
   description:
-    "Nas Tech Engineering provides hands-on trainning for Advanced learners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+    "Start your CAM & CNC journey with NAS Tech Engineering in Bangladesh. Hands-on foundation course for milling, routing, and fabrication with project-based learning.",
 };
 
 const page = () => {

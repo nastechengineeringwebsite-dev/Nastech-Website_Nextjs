@@ -5,7 +5,7 @@ import AnimatePage from '../components/AnimatePage';
 export const metadata = {
 	title: "Contact Us | Nas Tech Engineering",
 	description:
-		"Reach us for any queries or suggestions. We are here to help you with your engineering needs.",
+		"Reach us at NAS Tech Engineering for any queries or suggestions. We are here to help you with your engineering needs.",
 	
 };
 

@@ -13,7 +13,7 @@ export const metadata = {
   title:
     "Solidworks Industrial: Beginner to Intermediate | Nas Tech Engineering",
   description:
-    "Nas Tech Engineering provides hands-on trainning for beginners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+    "Learn SOLIDWORKS in Bangladesh. Designed for beginners, this training covers core modeling to assembly, enabling you to create accurate, production-ready designs. ",
 };
 
 const page = () => {

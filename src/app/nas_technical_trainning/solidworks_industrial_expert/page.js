@@ -12,7 +12,7 @@ import AnimatePage from "@/app/components/AnimatePage";
 export const metadata = {
   title: "Solidworks Industrial: Expert | Nas Tech Engineering",
   description:
-    "Nas Tech Engineering provides hands-on trainning for beginners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+    "NAS Tech Engineering's expert SOLIDWORKS course in Bangladesh. Master advanced surfacing, complex assemblies, and simulation to solve industrial design challenges.",
 };
 
 const page = () => {

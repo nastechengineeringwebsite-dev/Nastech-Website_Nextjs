@@ -6,7 +6,7 @@ import AnimatePage from "@/app/components/AnimatePage";
 export const metadata = {
 	title: "3D Printing | Nas Tech Engineering",
 	description:
-		"Nas Tech Engineering provides hands-on trainning for Advanced learners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+		"Cost-effective 3D printing services in Bangladesh by NAS Tech Engineering. Produce high-precision prototypes and functional parts for design validation and testing.",
 	
 };
 

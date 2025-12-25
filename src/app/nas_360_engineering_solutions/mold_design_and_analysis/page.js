@@ -6,7 +6,7 @@ import AnimatePage from "@/app/components/AnimatePage";
 export const metadata = {
 	title: "Mold Design , Analysis and Manufacturing | Nas Tech Engineering",
 	description:
-		"Nas Tech Engineering provides hands-on trainning for Advanced learners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+		"NAS Tech Engineering delivers high-quality mold design in Bangladesh. We use CAD/CAM, CAE analysis, and flow simulation to ensure durable, defect-free production molds. ",
 	
 };
 

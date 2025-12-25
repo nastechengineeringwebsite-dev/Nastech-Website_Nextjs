@@ -13,7 +13,7 @@ export const metadata = {
   title:
     "Engineering Design Analysis and Simulation: Beginner | Nas Tech Engineering",
   description:
-    "Nas Tech Engineering provides hands-on trainning for Advanced learners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+    "Optimize your designs with NAS Tech Engineering in Bangladesh. A beginner course in engineering analysis & simulation using industry tools to predict and improve performance. ",
 };
 
 const page = () => {

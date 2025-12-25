@@ -5,7 +5,7 @@ import AnimatePage from "../components/AnimatePage";
 export const metadata = {
   title: "Technical Training Program | Nas Tech Engineering",
   description:
-    "Nas Tech Engineering provides hands-on experience and trainning on CAD/CAM, CNC and design anylysis by our experts with experience on the industry for over 10+ years.",
+    "Master SolidWorks, CAM & CNC from beginner to expert. NAS Tech Engineering in Bangladesh offers structured industrial training, simulation, and professional certification.",
 };
 
 const page = () => {

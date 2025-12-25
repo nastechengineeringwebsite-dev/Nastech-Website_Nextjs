@@ -12,7 +12,7 @@ import AnimatePage from "@/app/components/AnimatePage";
 export const metadata = {
   title: "Professional All | Nas Tech Engineering",
   description:
-    "Nas Tech Engineering provides hands-on trainning for Advanced learners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+    "Master the complete workflow with NAS Tech Engineering in Bangladesh. This all-inclusive Professional program combines advanced design, analysis, and manufacturing techniques. ",
 };
 
 const page = () => {

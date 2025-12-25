@@ -13,7 +13,7 @@ export const metadata = {
   title:
     "Beginner to Intermediate Advance Learning+ Beginner to Intermediate CAM | Nas Tech Engineering",
   description:
-    "Nas Tech Engineering provides hands-on trainning for Advanced learners on industrial grade CAD using Solidworks by our experts with experience on the industry for over 10+ years. ",
+    "Turn designs into reality with NAS Tech Engineering in Bangladesh. Our beginner CAM course provides hands-on, project-based training in essential fabrication skills. ",
 };
 
 const page = () => {
