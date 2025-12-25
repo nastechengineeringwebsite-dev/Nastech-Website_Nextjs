@@ -7,7 +7,22 @@ export const metadata = {
 	title: "3D Scanning Service | Nas Tech Engineering",
 	description:
 		"NAS Tech Engineering provides precise 3D scanning services in Bangladesh for reverse engineering, quality control, and creating digital models for CAD and simulation. ",
-	
+    openGraph: {
+      title: "3D Scanning Service | Nas Tech Engineering",
+      description:
+        "NAS Tech Engineering provides precise 3D scanning services in Bangladesh for reverse engineering, quality control, and creating digital models for CAD and simulation.",
+      url: "https://www.nastechengineeringbd.com/nas_360_engineering_solutions/3d_scanning",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "3D Scanning Service | Nas Tech Engineering",
+      description:
+        "NAS Tech Engineering provides precise 3D scanning services in Bangladesh for reverse engineering, quality control, and creating digital models for CAD and simulation.",
+      images: ["images/website_preview.webp"],
+    },
 };
 
 const page = () => {

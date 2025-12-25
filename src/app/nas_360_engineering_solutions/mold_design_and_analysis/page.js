@@ -7,7 +7,22 @@ export const metadata = {
 	title: "Mold Design , Analysis and Manufacturing | Nas Tech Engineering",
 	description:
 		"NAS Tech Engineering delivers high-quality mold design in Bangladesh. We use CAD/CAM, CAE analysis, and flow simulation to ensure durable, defect-free production molds. ",
-	
+    openGraph: {
+      title: "Mold Design , Analysis and Manufacturing | Nas Tech Engineering",
+      description:
+        "NAS Tech Engineering delivers high-quality mold design in Bangladesh. We use CAD/CAM, CAE analysis, and flow simulation to ensure durable, defect-free production molds.",
+      url: "https://www.nastechengineeringbd.com/nas_360_engineering_solutions/mold_design_and_analysis",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Mold Design , Analysis and Manufacturing | Nas Tech Engineering",
+      description:
+        "NAS Tech Engineering delivers high-quality mold design in Bangladesh. We use CAD/CAM, CAE analysis, and flow simulation to ensure durable, defect-free production molds.",
+      images: ["images/website_preview.webp"],
+    },
 };
 
 const page = () => {

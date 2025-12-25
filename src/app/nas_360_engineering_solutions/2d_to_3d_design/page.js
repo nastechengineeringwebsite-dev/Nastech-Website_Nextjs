@@ -7,6 +7,22 @@ export const metadata = {
 	title: "2D and 3D drawing Service | Nas Tech Engineering",
 	description:
 		"NAS Tech Engineering delivers precise 2D & 3D drawing services in Bangladesh for manufacturing. We ensure production-ready designs that meet international standards.",
+    openGraph: {
+      title: "2D and 3D drawing Service | Nas Tech Engineering",
+      description:
+        "NAS Tech Engineering delivers precise 2D & 3D drawing services in Bangladesh for manufacturing. We ensure production-ready designs that meet international standards.",
+      url: "https://www.nastechengineeringbd.com/nas_360_engineering_solutions/2d_to_3d_design",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "2D and 3D drawing Service | Nas Tech Engineering",
+      description:
+        "NAS Tech Engineering delivers precise 2D & 3D drawing services in Bangladesh for manufacturing. We ensure production-ready designs that meet international standards.",
+      images: ["images/website_preview.webp"],
+    },
 	
 };
 

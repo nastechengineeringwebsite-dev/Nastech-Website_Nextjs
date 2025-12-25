@@ -14,6 +14,21 @@ export const metadata = {
     "Engineering Design Analysis and Simulation: Beginner | Nas Tech Engineering",
   description:
     "Optimize your designs with NAS Tech Engineering in Bangladesh. A beginner course in engineering analysis & simulation using industry tools to predict and improve performance. ",
+    openGraph: {
+      title: "Engineering Design Analysis and Simulation: Beginner | Nas Tech Engineering",
+      description:
+        "Optimize your designs with NAS Tech Engineering in Bangladesh. A beginner course in engineering analysis & simulation using industry tools to predict and improve performance.  ",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/engineering_design_analysis_and_simulation_beginner",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Engineering Design Analysis and Simulation: Beginner | Nas Tech Engineering",
+      description:
+        "Optimize your designs with NAS Tech Engineering in Bangladesh. A beginner course in engineering analysis & simulation using industry tools to predict and improve performance. ",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {

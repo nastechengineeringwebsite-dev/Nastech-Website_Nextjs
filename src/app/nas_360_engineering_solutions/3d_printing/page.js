@@ -7,7 +7,22 @@ export const metadata = {
 	title: "3D Printing | Nas Tech Engineering",
 	description:
 		"Cost-effective 3D printing services in Bangladesh by NAS Tech Engineering. Produce high-precision prototypes and functional parts for design validation and testing.",
-	
+    openGraph: {
+      title: "3D Printing | Nas Tech Engineering",
+      description:
+        "Cost-effective 3D printing services in Bangladesh by NAS Tech Engineering. Produce high-precision prototypes and functional parts for design validation and testing.",
+      url: "https://www.nastechengineeringbd.com/nas_360_engineering_solutions/3d_printing",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "3D Printing | Nas Tech Engineering",
+      description:
+        "Cost-effective 3D printing services in Bangladesh by NAS Tech Engineering. Produce high-precision prototypes and functional parts for design validation and testing.",
+      images: ["images/website_preview.webp"],
+    },
 };
 
 const page = () => {

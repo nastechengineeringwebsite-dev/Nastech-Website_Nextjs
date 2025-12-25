@@ -13,6 +13,21 @@ export const metadata = {
   title: "Professional All | Nas Tech Engineering",
   description:
     "Master the complete workflow with NAS Tech Engineering in Bangladesh. This all-inclusive Professional program combines advanced design, analysis, and manufacturing techniques. ",
+    openGraph: {
+      title: "Professional All | Nas Tech Engineering",
+      description:
+        "Master the complete workflow with NAS Tech Engineering in Bangladesh. This all-inclusive Professional program combines advanced design, analysis, and manufacturing techniques. ",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/professional_all",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Professional All | Nas Tech Engineering",
+      description:
+        "Master the complete workflow with NAS Tech Engineering in Bangladesh. This all-inclusive Professional program combines advanced design, analysis, and manufacturing techniques.",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {

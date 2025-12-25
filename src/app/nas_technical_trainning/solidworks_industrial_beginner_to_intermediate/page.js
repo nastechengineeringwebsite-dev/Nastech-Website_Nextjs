@@ -14,6 +14,21 @@ export const metadata = {
     "Solidworks Industrial: Beginner to Intermediate | Nas Tech Engineering",
   description:
     "Learn SOLIDWORKS in Bangladesh. Designed for beginners, this training covers core modeling to assembly, enabling you to create accurate, production-ready designs. ",
+    openGraph: {
+      title: "Solidworks Industrial: Beginner to Intermediate | Nas Tech Engineering",
+      description:
+        "Learn SOLIDWORKS in Bangladesh. Designed for beginners, this training covers core modeling to assembly, enabling you to create accurate, production-ready designs.",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/solidworks_industrial_beginner_to_intermediate",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Solidworks Industrial: Beginner to Intermediate | Nas Tech Engineering",
+      description:
+        "Learn SOLIDWORKS in Bangladesh. Designed for beginners, this training covers core modeling to assembly, enabling you to create accurate, production-ready designs.",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {

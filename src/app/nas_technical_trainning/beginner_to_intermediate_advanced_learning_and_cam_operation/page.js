@@ -14,6 +14,21 @@ export const metadata = {
     "Beginner to Intermediate Advance Learning+ Beginner to Intermediate CAM | Nas Tech Engineering",
   description:
     "Turn designs into reality with NAS Tech Engineering in Bangladesh. Our beginner CAM course provides hands-on, project-based training in essential fabrication skills. ",
+    openGraph: {
+      title: "Beginner to Intermediate Advance Learning+ Beginner to Intermediate CAM | Nas Tech Engineering",
+      description:
+        "Turn designs into reality with NAS Tech Engineering in Bangladesh. Our beginner CAM course provides hands-on, project-based training in essential fabrication skills.",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/beginner_to_intermediate_advanced_learning_and_cam_operation",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Beginner to Intermediate Advance Learning+ Beginner to Intermediate CAM | Nas Tech Engineering",
+      description:
+        "Turn designs into reality with NAS Tech Engineering in Bangladesh. Our beginner CAM course provides hands-on, project-based training in essential fabrication skills.",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {

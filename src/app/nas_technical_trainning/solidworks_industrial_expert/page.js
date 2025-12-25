@@ -13,6 +13,21 @@ export const metadata = {
   title: "Solidworks Industrial: Expert | Nas Tech Engineering",
   description:
     "NAS Tech Engineering's expert SOLIDWORKS course in Bangladesh. Master advanced surfacing, complex assemblies, and simulation to solve industrial design challenges.",
+    openGraph: {
+      title: "Solidworks Industrial: Expert | Nas Tech Engineering",
+      description:
+        "NAS Tech Engineering's expert SOLIDWORKS course in Bangladesh. Master advanced surfacing, complex assemblies, and simulation to solve industrial design challenges.",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/solidworks_industrial_expert",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Solidworks Industrial: Expert | Nas Tech Engineering",
+      description:
+        "NAS Tech Engineering's expert SOLIDWORKS course in Bangladesh. Master advanced surfacing, complex assemblies, and simulation to solve industrial design challenges.",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {

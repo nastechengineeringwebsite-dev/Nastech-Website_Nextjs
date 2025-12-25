@@ -13,6 +13,21 @@ export const metadata = {
   title: "Solidworks Industrial: Advanced Learning | Nas Tech Engineering",
   description:
     "Enhance your SOLIDWORKS expertise in Bangladesh. Master surface modeling, advanced assemblies, and simulation to tackle complex, professional-grade design projects. ",
+    openGraph: {
+      title: "Solidworks Industrial: Advanced Learning | Nas Tech Engineering",
+      description:
+        "Enhance your SOLIDWORKS expertise in Bangladesh. Master surface modeling, advanced assemblies, and simulation to tackle complex, professional-grade design projects.",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/solidworks_industrial_advanced_learning",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Solidworks Industrial: Advanced Learning | Nas Tech Engineering",
+      description:
+        "Enhance your SOLIDWORKS expertise in Bangladesh. Master surface modeling, advanced assemblies, and simulation to tackle complex, professional-grade design projects.",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {

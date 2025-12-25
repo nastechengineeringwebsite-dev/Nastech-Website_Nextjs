@@ -7,6 +7,22 @@ export const metadata = {
   title: "Product Design to Prototyping Design | Nas Tech Engineering",
   description:
     "From concept to functional prototype with NAS Tech Engineering in Bangladesh. We provide hands-on CAD/CAM & CNC solutions for faster, high-quality product development. ",
+    openGraph: {
+      title: "Product Design to Prototyping Design | Nas Tech Engineering",
+      description:
+        "From concept to functional prototype with NAS Tech Engineering in Bangladesh. We provide hands-on CAD/CAM & CNC solutions for faster, high-quality product development.",
+      url: "https://www.nastechengineeringbd.com/nas_360_engineering_solutions/product_concept_to_prototype_design",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Product Design to Prototyping Design | Nas Tech Engineering",
+      description:
+        "From concept to functional prototype with NAS Tech Engineering in Bangladesh. We provide hands-on CAD/CAM & CNC solutions for faster, high-quality product development.",
+      images: ["images/website_preview.webp"],
+    },
 };
 
 const page = () => {

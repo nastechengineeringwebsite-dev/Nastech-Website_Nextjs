@@ -13,6 +13,21 @@ export const metadata = {
   title: "CAM and CNC: Professional | Nas Tech Engineering",
   description:
     "Elevate your CAM & CNC practice in Bangladesh. NAS Tech Engineering's professional training covers multi-axis machining and tool path optimization for complex components.",
+    openGraph: {
+      title: "CAM and CNC: Professional | Nas Tech Engineering",
+      description:
+        "Elevate your CAM & CNC practice in Bangladesh. NAS Tech Engineering's professional training covers multi-axis machining and tool path optimization for complex components.",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/cam_and_cnc_professional",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "CAM and CNC: Professional | Nas Tech Engineering",
+      description:
+        "Elevate your CAM & CNC practice in Bangladesh. NAS Tech Engineering's professional training covers multi-axis machining and tool path optimization for complex components.",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {

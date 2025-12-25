@@ -13,6 +13,21 @@ export const metadata = {
   title: "CAM and CNC: Beginner to Intermediate | Nas Tech Engineering",
   description:
     "Start your CAM & CNC journey with NAS Tech Engineering in Bangladesh. Hands-on foundation course for milling, routing, and fabrication with project-based learning.",
+    openGraph: {
+      title: "CAM and CNC: Beginner to Intermediate | Nas Tech Engineering",
+      description:
+        "Start your CAM & CNC journey with NAS Tech Engineering in Bangladesh. Hands-on foundation course for milling, routing, and fabrication with project-based learning.",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/cam_and_cnc_beginner_to_intermediate",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "CAM and CNC: Beginner to Intermediate | Nas Tech Engineering",
+      description:
+        "Start your CAM & CNC journey with NAS Tech Engineering in Bangladesh. Hands-on foundation course for milling, routing, and fabrication with project-based learning.",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {

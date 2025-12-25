@@ -13,6 +13,21 @@ export const metadata = {
   title: "Solidworks Industrial: Professional | Nas Tech Engineering",
   description:
     "For engineers seeking expert-level proficiency: NAS Tech Engineering's professional SOLIDWORKS training in Bangladesh covers CAE, DFM, and full-scale product design. ",
+    openGraph: {
+      title: "Solidworks Industrial: Professional | Nas Tech Engineering",
+      description:
+        "For engineers seeking expert-level proficiency: NAS Tech Engineering's professional SOLIDWORKS training in Bangladesh covers CAE, DFM, and full-scale product design.",
+      url: "https://www.nastechengineeringbd.com/nas_technical_trainning/solidworks_industrial_professional",
+      siteName: "NAS Tech Engineering",
+      images: ["images/website_preview.webp"],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Solidworks Industrial: Professional | Nas Tech Engineering",
+      description:
+        "For engineers seeking expert-level proficiency: NAS Tech Engineering's professional SOLIDWORKS training in Bangladesh covers CAE, DFM, and full-scale product design.",
+      images: ["images/website_preview.webp"]},
 };
 
 const page = () => {
