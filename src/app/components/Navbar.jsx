@@ -247,7 +247,7 @@ const Navbar = () => {
 									listComponent={{
 										
 										"360 Engineering Solution ": "/nas_360_engineering_solutions",
-										"Renewable Energy Solution": "/regional_student_conference",
+										
 									}}
 									navbarState={linkChangeState}
 									showMenu={state}
