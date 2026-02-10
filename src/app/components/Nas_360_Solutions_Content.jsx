@@ -48,6 +48,14 @@ const Nas_360_Solutions_Content = () => {
           shortDis={"At NAS Tech Engineering, we specialize in mold design, analysis, and manufacturing for a wide range of industrial applications. Our team combines CAD/CAM modeling, engineering analysis (CAE), and precision manufacturing techniques to develop high-quality molds optimized for efficiency, durability, and production performance. We perform thorough mold flow simulations and structural analysis to ensure designs meet manufacturing requirements and minimize defects. From concept to finished mold, our services support rapid prototyping, production-ready tooling, and Design for Manufacturing (DFM) principles, delivering reliable solutions for complex industrial components."}
           
         />
+        <Product_Card
+          
+          cardImage={"360 Engineering Solutions/PCB Design And Analysis/pcb_design_and_analysis.jpg"}
+          heading={"PCB Design and Analysis"}
+          pageLink={"nas_360_engineering_solutions/pcb_design_and_analysis"}
+          shortDis={"From 1st to 6th layer PCB design to complete system architecture and full product development, we deliver end to end hardware solutions ready for manufacturing. At NAS Tech Engineering, our expertise covers schematic design, multilayer PCB layout, component selection, prototyping, testing, and validation to ensure reliable and production-ready results."}
+          
+        />
         
       </Flex>
     </Container>

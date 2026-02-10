@@ -118,6 +118,12 @@ const Home_Engineering_Solution = () => {
               cardImage={"360 Engineering Solutions/Mold Design And Analysis/mold_design_and_analysis.jpg"}
               pageLink={"nas_360_engineering_solutions/mold_design_and_analysis"}
             />
+            <Home_Product_Card
+              heading={"PCB Design and Analysis"}
+              shortDis={`From 1st to 6th layer PCB design to complete system architecture and full product development, we deliver hardware solutions....`}
+              cardImage={"360 Engineering Solutions/PCB Design And Analysis/pcb_design_and_analysis.jpg"}
+              pageLink={"nas_360_engineering_solutions/pcb_design_and_analysis"}
+            />
           </Carousel>
         </div>
       </Container>
