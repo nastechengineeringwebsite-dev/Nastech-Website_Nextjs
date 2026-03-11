@@ -74,7 +74,7 @@ const DropDownMenu = ({ label, link, listComponent, navbarState, showMenu }) => 
 				<div className='lg:absolute w-40 h-10 left-1/2 -translate-x-1/2 -top-2 -translate-y-1/2 bg-transparent lg:block hidden'></div>
 				<div className='lg:absolute w-3 h-3 left-1/2 top-0 -translate-x-1/2  -translate-y-1/2 bg-bg_secondary rotate-45 lg:block hidden'></div>
 				<List
-					className={`lg:bg-bg_secondary flex flex-col w-full lg:w-fit lg:px-6 pl-4 lg:rounded-md mt-5 lg:mt-0 lg:shadow-around-small ${
+					className={`lg:bg-bg_secondary lg:min-w-[200px] flex flex-col w-full lg:w-fit lg:px-6 pl-4 lg:rounded-md mt-5 lg:mt-0 lg:shadow-around-small ${
 						open && showMenu ? "lg:border-none border-b-[1px] border-[#92A2B8]" : ""
 					}`}
 				>

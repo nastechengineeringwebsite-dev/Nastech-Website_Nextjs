@@ -1,11 +1,13 @@
 import React from 'react'
 import Container from './Container'
 import Image from 'next/image'
+import AnimatePage from './AnimatePage'
 
 const Banner = () => {
   return (
     <div className='bg-[#C2CCCB] w-full'>
     <Container>
+      <AnimatePage>
         <Image
         className='w-full'
             src={'/images/Banner.jpg'}
@@ -14,7 +16,8 @@ const Banner = () => {
             height={500}
             loading="eager"
             fetchPriority={"high"}
-        ></Image>
+          ></Image>
+          </AnimatePage>
     </Container>
     </div>
   )

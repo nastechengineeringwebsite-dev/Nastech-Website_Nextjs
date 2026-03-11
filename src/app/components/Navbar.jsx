@@ -16,6 +16,8 @@ import DropDownMenu from "./DropDownMenu"
 import { toast } from "react-toastify"
 import Image from "next/image"
 import Link from "next/link"
+import { FaShoppingCart } from "react-icons/fa"
+import { usePathname } from "next/navigation"
 
 const Navbar = () => {
 	axios.defaults.withCredentials = true
@@ -23,31 +25,19 @@ const Navbar = () => {
 	let [state, setState] = useState(false)
 	let [accountList, setAccountList] = useState(false)
 	let [navShadow, setNavShadow] = useState(false)
-	let [userLoggedIn, setUserLoggedIn] = useState(false)
-	let [userProfileName, setUserProfileName] = useState("")
-	let [fullName, setFullName] = useState("")
-	let [user_profileImage, setUser_ProfileImage] = useState("N/A")
 	let [refresh, setRefresh] = useState(false)
-	let accountref = useRef()
+
+	let [store_page, setStore_page] = useState(false)
+	let [user_signed_in, setUser_Signed_in] = useState(false)
+
+	//let accountref = useRef()
 
 	let changeState = () => {
 		setState(!state)
 		setNavShadow(false)
 	}
 
-	let logOutUser = () => {
-		axios
-			.get(`${import.meta.env.VITE_DATABASE_URL}/api/v1/auth/logout`)
-			.then((response) => {
-				if (response.status == "200") {
-					window.location.pathname = "/login"
-				}
-			})
-			.catch((error) => {
-				toast.error("An error occurred")
-				console.log(error)
-			})
-	}
+
 
 	let linkChangeState = () => {
 		if (window.innerWidth < 1024) {
@@ -59,8 +49,11 @@ const Navbar = () => {
 	let changeAccountList = () => {
 		setAccountList(!accountList)
 	}
-
+	const path = usePathname()
 	useEffect(() => {
+		// if (path.includes('grateful_tokens')) {
+		// 	setStore_page(true)
+		// }
 		if (typeof window !== "undefined") {
 			function checkWindowSize() {
 				if (window.innerWidth < 1024) {
@@ -73,14 +66,6 @@ const Navbar = () => {
 
 			window.addEventListener("resize", checkWindowSize)
 
-			// document.addEventListener("click", (e) => {
-			// 	if (accountref != null) {
-			// 		if (!accountref.current.contains(e.target)) {
-			// 			setAccountList(false)
-			// 		}
-			// 	}
-			// })
-
 			window.addEventListener("scroll", () => {
 				if (window.scrollY == 0 || state) {
 					setNavShadow(false)
@@ -89,74 +74,15 @@ const Navbar = () => {
 				}
 			})
 		}
-
-		// axios
-		// 	.get(`${import.meta.env.VITE_DATABASE_URL}/api/v1/auth/authorized`)
-		// 	.then((respone) => {
-		// 		if (respone.status == "200") {
-		// 			const data = respone.data
-		// 			console.log("Refreshed")
-		// 			if (!data.authorized) {
-		// 				if (userLoggedIn) {
-		// 					window.location.reload()
-		// 				}
-
-		// 				setUserLoggedIn(false)
-
-		// 				return
-		// 			}
-
-		// 			setUserLoggedIn(true)
-
-		// 			let userData = data.data
-		// 			let name = userData.user_name
-		// 			let nameParts = name.split(" ")
-		// 			let shortName = nameParts[0][0] + nameParts.pop()[0]
-
-		// 			setUserProfileName(shortName)
-		// 			setFullName(name)
-
-		// 			const user_Id = userData.user_id
-
-		// 			axios
-		// 				.post(`${import.meta.env.VITE_DATABASE_URL}/api/v1/user/findMemberByUserId`, {
-		// 					_id: user_Id,
-		// 				})
-		// 				.then((response) => {
-		// 					if (respone.status == "200") {
-		// 						const data = response.data
-		// 						if (data.success) {
-		// 							const user = data.data.user
-		// 							setUser_ProfileImage(user.profileImage)
-		// 						} else {
-		// 							console.log(data.data.error)
-		// 						}
-		// 					}
-		// 				})
-		// 				.catch((error) => {
-		// 					if (error) {
-		// 						console.log(error)
-		// 					}
-		// 				})
-		// 		}
-		// 	})
-		// 	.catch((error) => {
-		// 		setUserLoggedIn(false)
-		// 		console.log(error)
-		// 	})
-
-		// setTimeout(() => {
-		// 	setRefresh(!refresh)
-		// }, import.meta.env.VITE_REFRESH_TIME || 300000)
+		console.log("Refreshed")
 
 	}, [refresh])
 
 	return (
 		<>
 			<div
-				className={`lg:hidden w-[100vw] h-[100vh] top-0 left-0  ${
-					state ? "bg-black/50 z-40 fixed" : "bg-transparent z-[-1] absolute"
-				} duration-300`}
+				className={`lg:hidden w-[100vw] h-[100vh] top-0 left-0  ${state ? "bg-black/50 z-40 fixed" : "bg-transparent z-[-1] absolute"
+					} duration-300`}
 				id={'Nav-background'}
 				onClick={() => {
 					setState(false)
@@ -164,11 +90,9 @@ const Navbar = () => {
 			></div>
 			<nav>
 				<div
-					className={`w-full lg:bg-bg_primary ${
-						state ? "bg-transparent" : "bg-bg_primary"
-					} top-[0%] z-50 lg:static lg:shadow-none ${
-						navShadow ? "shadow-xl" : "shadow-none"
-					} fixed duration-300`}
+					className={`w-full lg:bg-bg_primary ${state ? "bg-transparent" : "bg-bg_primary"
+						} top-[0%] z-50 lg:static lg:shadow-none ${navShadow ? "shadow-xl" : "shadow-none"
+						} fixed duration-300`}
 				>
 					<ScrollToTopButton navmenu={state}></ScrollToTopButton>
 					<Container>
@@ -185,89 +109,165 @@ const Navbar = () => {
 								></Image>
 							</Link>
 							<FaBars
-								className={`lg:hidden absolute top-[50%] translate-y-[-50%] right-5  hover:cursor-pointer z-20 ${
-									state ? "text-transparent" : "text-text_primary"
-								} duration-150 md:w-6 md:h-6 w-5 h-5`}
+								className={`lg:hidden absolute top-[50%] translate-y-[-50%] right-5  hover:cursor-pointer z-20 ${state ? "text-transparent" : "text-text_primary"
+									} duration-150 md:w-6 md:h-6 w-5 h-5`}
 								onClick={changeState}
 							/>
 							<List
-								className={`lg:flex-row flex-col lg:justify-end flex gap-8 lg:relative absolute lg:bg-bg_primary bg-bg_primary lg:w-full lg:h-full h-[100vh] top-0 lg:left-0 lg:items-center ${
-									state ? "left-[0%]" : "left-[-100%]"
-								} lg:duration-0 duration-500 w-[70%] max-w-[300px] lg:max-w-[1000px] lg:shadow-none shadow-2xl shadow-black/70 lg:pt-0 lg:pl-0 pt-12 px-5 overflow-scroll lg:overflow-visible scrollbar-hide`}
+								className={`lg:flex-row flex-col lg:justify-end flex gap-8 lg:relative absolute lg:bg-bg_primary bg-bg_primary lg:w-full lg:h-full h-[100vh] top-0 lg:left-0 lg:items-center ${state ? "left-[0%]" : "left-[-100%]"
+									} lg:duration-0 duration-500 w-[70%] max-w-[300px] lg:max-w-[1000px] lg:shadow-none shadow-2xl shadow-black/70 lg:pt-0 lg:pl-0 pt-12 px-5 overflow-scroll lg:overflow-visible scrollbar-hide`}
 							>
 								<IoMdCloseCircleOutline
 									className='lg:hidden absolute top-4 right-4 text-text_primary w-6 h-6 hover:cursor-pointer z-50'
 									onClick={changeState}
 								/>
-								<ListItem
-									className=' text-text_primary font-semibold text-[16px] relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
+								{!store_page && !(usePathname().includes('grateful_tokens')) ?
+									<>
+										<ListItem
+											className=' text-text_primary font-semibold text-[16px] relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
                          after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 after:rounded-full lg:py-0 py-2'
-								
-								key={"Home"}
-								>
-									<Link
-										href='/'
-										className='hover:font-semibold lg:hover:font-semibold'
-										onClick={linkChangeState}
-									>
-										Home
-									</Link>
-								</ListItem>
-								<ListItem
-									className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
-									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2 '
-								
-								key={"About"}
-								>
-									<Link
-										href='/about'
-										className='hover:font-semibold lg:hover:font-semibold'
-										onClick={linkChangeState}
-									>
-										About Us
-									</Link>
-								</ListItem>
-								<ListItem
-									className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
-									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2'
-									key={"Technical Training"}
-								>
-									<Link
-										href='/nas_technical_trainning'
-										className='hover:font-semibold lg:hover:font-semibold'
-										onClick={linkChangeState}
-									>
-										Technical Training
-									</Link>
-								</ListItem>
-								
-								<DropDownMenu
-									label={"Provided Services"}
-									link={"#"}
-									listComponent={{
-										
-										"360 Engineering Solution ": "/nas_360_engineering_solutions",
-										
-									}}
-									navbarState={linkChangeState}
-									showMenu={state}
-								></DropDownMenu>
 
-								
-								<ListItem
-									className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
+											key={"Home"}
+										>
+											<Link
+												href='/'
+												className='hover:font-semibold lg:hover:font-semibold'
+												onClick={linkChangeState}
+											>
+												Home
+											</Link>
+										</ListItem>
+										<ListItem
+											className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
+									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2 '
+
+											key={"About"}
+										>
+											<Link
+												href='/about'
+												className='hover:font-semibold lg:hover:font-semibold'
+												onClick={linkChangeState}
+											>
+												About Us
+											</Link>
+										</ListItem>
+										<ListItem
+											className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
 									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2'
-								key={"Contact Us"}
-								>
-									<Link
-										href='/contact'
-										className='hover:font-semibold lg:hover:font-semibold'
-										onClick={linkChangeState}
-									>
-										Contact Us
-									</Link>
-								</ListItem>
-								{/* <div ref={accountref} >
+											key={"Technical Training"}
+										>
+											<Link
+												href='/nas_technical_trainning'
+												className='hover:font-semibold lg:hover:font-semibold'
+												onClick={linkChangeState}
+											>
+												Technical Training
+											</Link>
+										</ListItem>
+
+										<DropDownMenu
+											label={"Provided Services"}
+											link={"#"}
+											listComponent={{
+
+												"360 Engineering Solution ": "/nas_360_engineering_solutions",
+
+											}}
+											navbarState={linkChangeState}
+											showMenu={state}
+										></DropDownMenu>
+
+										<ListItem
+											className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
+									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2'
+											key={"Grateful Tokens"}
+										>
+											<Link
+												href='/grateful_tokens'
+												className='hover:font-semibold lg:hover:font-semibold'
+												onClick={() => {
+													setStore_page(true)
+													setRefresh(!refresh)
+												}}
+											>
+												Product Store
+											</Link>
+										</ListItem>
+
+										<ListItem
+											className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
+									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2'
+											key={"Contact Us"}
+										>
+											<Link
+												href='/contact'
+												className='hover:font-semibold lg:hover:font-semibold'
+												onClick={linkChangeState}
+											>
+												Contact Us
+											</Link>
+										</ListItem>
+
+									</> :
+									<>
+										<ListItem
+											className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
+									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2'
+											key={"Home Page"}
+										>
+											<Link
+												href='/'
+												className='hover:font-semibold lg:hover:font-semibold'
+												onClick={() => {
+													setStore_page(false	)
+													setRefresh(!refresh)
+												}}
+											>
+												Main Page
+											</Link>
+										</ListItem>
+										{user_signed_in ?
+										<DropDownMenu
+											label={"Account"}
+											link={"#"}
+											listComponent={{
+
+												"Profile": "/myaccount",
+												"Logout": "/logout",
+
+											}}
+											navbarState={linkChangeState}
+											showMenu={state}
+										></DropDownMenu>
+											:
+											<DropDownMenu
+											label={"Account"}
+											link={"#"}
+											listComponent={{
+	
+												"Login": "/grateful_tokens/login",
+												"Sign Up": "/grateful_tokens/sign_up",
+											}}
+											navbarState={linkChangeState}
+											showMenu={state}
+										></DropDownMenu>
+										}
+										<ListItem className=' text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
+									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2'
+											key={"Shopping cart"}>
+											<Link
+												href='/cart'
+												className='hover:font-semibold lg:hover:font-semibold'
+												
+											>
+												<FaShoppingCart />
+											</Link>
+										
+										</ListItem>
+										</>
+								}
+
+										{/* <div ref={accountref} >
 									<ListItem
 										className={`flex flex-col lg:flex-row font-medium text-[15px] hover:cursor-pointer relative`}
 										onClick={changeAccountList}
@@ -351,7 +351,7 @@ const Navbar = () => {
 										</List>
 									</ListItem>
 								</div> */}
-							</List>
+									</List>
 						</Flex>
 					</Container>
 				</div>
