@@ -11,7 +11,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../Context/AuthContext"
+import { useAuth } from "../context/AuthContext"
 
 const Login = () => {
     let router = useRouter()

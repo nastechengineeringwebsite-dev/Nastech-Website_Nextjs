@@ -18,7 +18,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
-import { useAuth } from "../Context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   axios.defaults.withCredentials = true;

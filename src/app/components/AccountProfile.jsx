@@ -9,7 +9,7 @@ import MyOrders from "./MyOrders";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../Context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 const AccountProfile = () => {
 

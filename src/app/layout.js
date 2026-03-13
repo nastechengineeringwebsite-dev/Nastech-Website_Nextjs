@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import InitialLoadingAnimation from "./components/InitialLoading";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { AuthProvider } from "./Context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
 
 const poppins = Poppins({
