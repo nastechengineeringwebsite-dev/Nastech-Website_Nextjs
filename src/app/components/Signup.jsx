@@ -8,8 +8,12 @@ import InputBox from "./InputBox";
 import Button from "./Button";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+
 
 const Signup = () => {
+    const router = useRouter()
     let [show_password, setShow_password] = useState(false)
     let [show_confirm_pass, setShow_confirm_pass] = useState(false)
 
@@ -18,20 +22,41 @@ const Signup = () => {
     let [password, setPassword] = useState('')
     let [con_password, setConPassword] = useState('')
 
-    let createUser = (e) => {
+    let [loading, setLoading] =  useState(false)
+
+
+    let createUser = async (e) => {
         e.preventDefault()
+        
         if (password == con_password) {
             
+            setLoading(true)
             setName('')
             setEmail('')
             setPassword('')
             setConPassword('')
 
-            console.log(name)
-            console.log(email)
-            console.log(password)
+            const response = await axios.post('/api/user',{
+                username: name,
+                email,
+                password
+            }).then((res)=>{
+                setLoading(false)
+                if (res.status == 201){
+                    toast.success("Account created successfully")
+                    router.push("/grateful_tokens/account")
+                }
+                else{
+                    
+                    toast.error("Error Occured while creating account")
+                }
+            }).catch((error)=>{
+                setLoading(false)
+                toast.error("Error Occured while creating account")
+            })
         }
         else {
+            setLoading(false)
             toast.error("Password not correct! Please check again")
         }
         
@@ -64,7 +89,7 @@ const Signup = () => {
 
 
                 </Flex>
-                <Button className={"mt-4"} onClick={createUser}>Create Account</Button>
+                <Button className={"mt-4"} onClick={createUser} loading = {loading}>Create Account</Button>
 
                 <span className="mx-auto">Already have an account? <Link className="text-text_secondary font-semibold" href="/grateful_tokens/login">Log in</Link></span>
             </Flex>

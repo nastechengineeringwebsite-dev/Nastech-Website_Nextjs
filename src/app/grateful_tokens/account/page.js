@@ -1,6 +1,6 @@
-import AccountProfile from '@/app/components/AccountProfile'
-import AnimatePage from '@/app/components/AnimatePage'
-import Container from '@/app/components/Container'
+import AccountProfile from '../../components/AccountProfile'
+import AnimatePage from '../../components/AnimatePage'
+import Container from '../../components/Container'
 import React from 'react'
 
 const page = () => {

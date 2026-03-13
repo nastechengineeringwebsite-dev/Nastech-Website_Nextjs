@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import InitialLoadingAnimation from "./components/InitialLoading";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AuthProvider } from "./Context/AuthContext";
+
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -67,31 +69,34 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={`${poppins.className} antialiased`}>
-        <InitialLoadingAnimation />
-        <ToastContainer
-          className={
-            "w-[400px] text-center font-semibold text-[16px] duration-700"
-          }
-          position="top-center"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss={false}
-          draggable={false}
-          pauseOnHover={false}
-          theme="light"
-          transition={Slide}
-        />
-        <Navbar />
+          <AuthProvider>
+          <InitialLoadingAnimation />
+          <ToastContainer
+            className={
+              "w-[400px] text-center font-semibold text-[16px] duration-700"
+            }
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable={false}
+            pauseOnHover={false}
+            theme="light"
+            transition={Slide}
+          />
+          
+          <Navbar />
 
-        <main>{children}</main>
+          <main>{children}</main>
 
-        <Footer />
+          <Footer />
 
-        <Analytics />
-        <SpeedInsights />
+          <Analytics />
+          <SpeedInsights />
+          </AuthProvider>
       </body>
     </html>
   );

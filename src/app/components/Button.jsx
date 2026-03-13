@@ -71,7 +71,7 @@ const Button = ({
 						  }
 				}
 			>
-				<Flex className={"absolute left-1 top-1/2 -translate-y-1/2 z-10"}>
+				<Flex className={"absolute right-1 top-1/2 -translate-y-1/2 z-10"}>
 					{isClient && (
 						<ClipLoader 
 						color={invert ? "#EAF3FF" : "#00000"}
@@ -106,7 +106,7 @@ const Button = ({
 					  }
 			}
 		>
-			<Flex className={"absolute left-1 top-1/2 -translate-y-1/2 z-10"}>
+			<Flex className={"absolute right-1 top-1/2 -translate-y-1/2 z-10"}>
 				{isClient && (
 					<ClipLoader 
 					color={invert ? "#EAF3FF" : "#00000"}

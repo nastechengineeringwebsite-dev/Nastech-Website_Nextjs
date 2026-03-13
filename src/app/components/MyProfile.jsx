@@ -5,11 +5,12 @@ import Flex from "./Flex";
 import InputBox from "./InputBox";
 import Button from "./Button";
 
-const MyProfile = () => {
-  let [name, setName] = useState("Omar");
-  let [email, setEmail] = useState("okmahin2@gmail.com");
-  let [total_orders, setTotal_orders] = useState(10);
-  let [created, setCreated] = useState("2023-01-01");
+const MyProfile = ({userInfo = null}) => {
+
+  let [name, setName] = useState(userInfo.username? userInfo.username : "");
+  let [email, setEmail] = useState(userInfo.email? userInfo.email : "");
+  let [total_orders, setTotal_orders] = useState(userInfo.total_orders? userInfo.total_orders : "");
+  let [created, setCreated] = useState(userInfo.createdAt? userInfo.createdAt : "");
 
   let [editName, setEditName] = useState(false);
   let [editEmail, setEditEmail] = useState(false);
@@ -72,7 +73,7 @@ const MyProfile = () => {
         </span>
         <InputBox
           mandetory={false}
-          type="date"
+          type="text"
           value={created ? created : "NaN"}
           className={"pl-[200px] "}
           disabled={true}

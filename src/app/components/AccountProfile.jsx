@@ -1,21 +1,52 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Flex from "./Flex";
 import List from "./List";
 import ListItem from "./ListItem";
 import MyProfile from "./MyProfile";
 import MyOrders from "./MyOrders";
 import { motion } from "framer-motion";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../Context/AuthContext";
 
 const AccountProfile = () => {
-  let [username, setUsername] = useState("Omar");
 
+  const router = useRouter()
+
+  let [username, setUsername] = useState(null);
+  let [userInfo, setUserInfo] = useState(null)
   let [currrentInfo, setCurrentInfo] = useState(0);
+
+  let {userSignedIn, setUserSignedIn} = useAuth()
+
   let [infoList, setInfoList] = useState([
-    { key: "My Profile", component: <MyProfile /> },
-    { key: "My Orders", component: <MyOrders /> },
-  ]);
+    { key: "My Profile" },
+    { key: "My Orders" },
+  ])
+
+
+  let logout = async ()=>{
+    await axios.get('/api/logout')
+    router.push("/grateful_tokens/login")
+    setUserSignedIn(false)
+  }
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get("/api/account");
+        const user = res.data.data;
+        setUserInfo(user)
+        setUsername(user.username);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUser();
+  }, []);
 
   return (
     <Flex className={"flex flex-col"}>
@@ -45,11 +76,15 @@ const AccountProfile = () => {
               className={
                 "text-text_secondary font-semibold cursor-pointer  px-10 py-7 mt-auto"
               }
+              onClick = {logout}
             >
               Logout
             </ListItem>
           </List>
-          <Flex className={""}>{infoList[currrentInfo].component}</Flex>
+          <Flex>
+            {currrentInfo === 0 && userInfo && <MyProfile userInfo={userInfo} />}
+            {currrentInfo === 1 && userInfo && <MyOrders userInfo={userInfo} />}
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
