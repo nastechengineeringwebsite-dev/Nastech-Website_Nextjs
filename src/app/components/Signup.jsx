@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 
 
 const Signup = () => {
@@ -23,6 +24,8 @@ const Signup = () => {
     let [con_password, setConPassword] = useState('')
 
     let [loading, setLoading] =  useState(false)
+
+    let {userSignedIn, setUserSignedIn} = useAuth()
 
 
     let createUser = async (e) => {
@@ -44,6 +47,7 @@ const Signup = () => {
                 setLoading(false)
                 if (res.status == 201){
                     toast.success("Account created successfully")
+                    setUserSignedIn(true)
                     router.push("/grateful_tokens/account")
                 }
                 else{
@@ -89,7 +93,7 @@ const Signup = () => {
 
 
                 </Flex>
-                <Button className={"mt-4"} onClick={createUser} loading = {loading}>Create Account</Button>
+                <Button className={"mt-4"} onClick={createUser} loading = {loading} type="submit">Create Account</Button>
 
                 <span className="mx-auto">Already have an account? <Link className="text-text_secondary font-semibold" href="/grateful_tokens/login">Log in</Link></span>
             </Flex>

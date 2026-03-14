@@ -4,16 +4,73 @@ import React, { useState } from "react";
 import Flex from "./Flex";
 import InputBox from "./InputBox";
 import Button from "./Button";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const MyProfile = ({userInfo = null}) => {
+const MyProfile = ({ userInfo = null }) => {
+  let [name, setName] = useState(userInfo.username ? userInfo.username : "");
+  let [email, setEmail] = useState(userInfo.email ? userInfo.email : "");
+  let [total_orders, setTotal_orders] = useState(
+    userInfo.total_orders ? userInfo.total_orders : ""
+  );
+  let [created, setCreated] = useState(
+    userInfo.createdAt ? userInfo.createdAt : ""
+  );
 
-  let [name, setName] = useState(userInfo.username? userInfo.username : "");
-  let [email, setEmail] = useState(userInfo.email? userInfo.email : "");
-  let [total_orders, setTotal_orders] = useState(userInfo.total_orders? userInfo.total_orders : "");
-  let [created, setCreated] = useState(userInfo.createdAt? userInfo.createdAt : "");
+  let [editNameLoading, setEditNameLoading] = useState(false);
+  let [editEmailLoading, setEditEmailLoading] = useState(false);
 
   let [editName, setEditName] = useState(false);
   let [editEmail, setEditEmail] = useState(false);
+
+  let handleEditUsername = async () => {
+    setEditName(!editName);
+
+    if (editName && userInfo.username != name) {
+      setEditNameLoading(true);
+      await axios
+        .put(`/api/user/${userInfo.id}`, {
+          username: name,
+        })
+        .then(() => {
+          toast.success("Username Updated Successfully");
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Error Occured");
+        });
+
+      setEditNameLoading(false);
+    }
+  };
+
+  let handleEditEmail = async () => {
+    setEditEmail(!editEmail);
+
+    if (editEmail && userInfo.email != email) {
+      setEditEmailLoading(true);
+      const res = await axios.get(`/api/email/${email}`);
+
+      if (res.data.data === "not-valid") {
+        await axios
+          .put(`/api/user/${userInfo.id}`, {
+            email: email
+          })
+          .then(() => {
+            toast.success("Email Updated Successfully");
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error("Error Occured");
+          });
+      }
+      else{
+        setEmail(userInfo.email)
+        toast.error("Email Acocunt Already Exists")
+      }
+      setEditEmailLoading(false);
+    }
+  };
 
   return (
     <Flex className={"flex flex-col gap-y-5 p-10 w-[800px] h-[600px]"}>
@@ -31,7 +88,8 @@ const MyProfile = ({userInfo = null}) => {
         ></InputBox>
         <Button
           className={"ml-10 w-[100px]"}
-          onClick={() => setEditName(!editName)}
+          onClick={handleEditUsername}
+          loading={editNameLoading}
         >
           {editName ? "Save" : "Edit"}
         </Button>
@@ -50,7 +108,8 @@ const MyProfile = ({userInfo = null}) => {
         ></InputBox>
         <Button
           className={"ml-10 w-[100px]"}
-          onClick={() => setEditEmail(!editEmail)}
+          onClick={handleEditEmail}
+          loading = {editEmailLoading}
         >
           {editEmail ? "Save" : "Edit"}
         </Button>
@@ -66,8 +125,8 @@ const MyProfile = ({userInfo = null}) => {
           className={"pl-[200px] "}
           disabled={true}
         ></InputBox>
-          </Flex>
-          <Flex className={"relative"}>
+      </Flex>
+      <Flex className={"relative"}>
         <span className="text-slate-500 font-semibold absolute top-[25%]">
           Account Created At
         </span>

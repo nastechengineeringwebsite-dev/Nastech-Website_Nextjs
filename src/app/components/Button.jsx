@@ -14,6 +14,7 @@ const Button = ({
 	newPage,
 	disabled,
 	loading = false,
+	...props
 }) => {
 	const [isClient, setIsClient] = useState(false)
 

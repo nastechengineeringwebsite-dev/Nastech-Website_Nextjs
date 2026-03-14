@@ -78,7 +78,7 @@ const Login = () => {
           ></InputBox>
         </Flex>
 
-        <Button className={"mt-4"} onClick={loginUser} loading = {loading}>
+        <Button className={"mt-4"} onClick={loginUser} loading = {loading} type = "submit">
           Login
         </Button>
 
