@@ -11,44 +11,47 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../context/AuthContext"
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-    let router = useRouter()
+  let router = useRouter();
   let [show_password, setShow_password] = useState(false);
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
-  let [loading, setLoading] = useState(false)
+  let [loading, setLoading] = useState(false);
 
-  let {userSignedIn, setUserSignedIn} = useAuth()
+  let { userSignedIn, setUserSignedIn } = useAuth();
 
   let loginUser = async (e) => {
     e.preventDefault();
     if (password) {
-      setLoading(true)
-      const user = await axios.get(`/api/login/${email}`);
-      if (user.data.data) {
-        if (user.data.data.password == password) {
-          setEmail("");
-          setPassword("");
-          setUserSignedIn(true)
-          setLoading(false)
-          router.push("/grateful_tokens/account")
-          router.refresh()
-        } else {
-          setLoading(false)
-          toast.error("Credentials not correct! Please check again");
-        }
-      } else {
-        setLoading(false)
+      setLoading(true);
+      const res = await axios.post(`/api/login`, {
+        email: email,
+        password: password,
+      });
+
+      console.log(res)
+      if (res.data.user && res.data.pass_valid) {
+        router.push("/grateful_tokens/account");
+        router.refresh();
+        setEmail("");
+        setPassword("");
+        setUserSignedIn(true);
+        setLoading(false);
+      } else if (!res.data.user){
+        setLoading(false);
         toast.error("User do not exist! Please check again");
+      } else if (!res.status.pass_valid){
+        setLoading(false);
+        toast.error("Invalid Password! Please check again");
       }
     } else {
-      setLoading(false)
+      setLoading(false);
       toast.error("Credentials not correct! Please check again");
     }
-    setLoading(false)
+    setLoading(false);
   };
   return (
     <form className="py-20 mb-40 w-[40%] mx-auto">
@@ -78,7 +81,12 @@ const Login = () => {
           ></InputBox>
         </Flex>
 
-        <Button className={"mt-4"} onClick={loginUser} loading = {loading} type = "submit">
+        <Button
+          className={"mt-4"}
+          onClick={loginUser}
+          loading={loading}
+          type="submit"
+        >
           Login
         </Button>
 

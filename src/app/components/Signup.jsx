@@ -11,6 +11,8 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
+import validatePassword from "../utils/validatePassword";
+import validateEmail from "../utils/validateEmail";
 
 
 const Signup = () => {
@@ -30,7 +32,16 @@ const Signup = () => {
 
     let createUser = async (e) => {
         e.preventDefault()
-        
+        if (!validatePassword(password)){
+            toast.error("Password do not match the required criteria")
+            return
+        }
+
+        if (!validateEmail(email)){
+            toast.error("Invalid email address")
+            return
+        }
+
         if (password == con_password) {
             
             setLoading(true)

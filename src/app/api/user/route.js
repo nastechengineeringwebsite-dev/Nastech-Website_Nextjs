@@ -1,16 +1,18 @@
 import { cookies } from "next/headers";
 import prisma from "../../lib/prisma"; 
 import { SignJWT } from "jose";
+import bcrypt from "bcrypt"
 
 export async function POST(req) {
   try {
     const body = await req.json();
+    const hashed_pass = await bcrypt.hash(body.password,10)
 
     const user = await prisma.user.create({
       data: {
         username: body.username,
         email: body.email,
-        password: body.password
+        password: hashed_pass
       },
     })
     const secret = new TextEncoder().encode(process.env.JSONWEBTOKEN_SECRET);
