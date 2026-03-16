@@ -8,6 +8,8 @@ import Button from "./Button";
 import { IoMdCloudUpload } from "react-icons/io";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const AddProducts = () => {
   const [image, setImage] = useState(null);
@@ -19,13 +21,55 @@ const AddProducts = () => {
   const [weight, setWeight] = useState("");
   const [price, setPrice] = useState("");
 
+  const [loading, setLoading] = useState(false);
 
-  const handleUploadImage = ({event, info})=>{
-    if (event === 'success'){
-        console.log(info?.secure_url)
-        setImage(info?.secure_url)
+  const handleUploadImage = ({ event, info }) => {
+    if (event === "success") {
+      console.log(info?.secure_url);
+      setImage(info?.secure_url);
     }
-  }
+  };
+
+  const handleProductUpload = async (e) => {
+    e.preventDefault();
+    if (image && productName && description && material && length && width && weight && price){
+        setLoading(true)
+        const res = await axios.post('/api/addProduct', {
+            name: productName,
+            description: description,
+            thumbnail: image,
+            basePrice: Number(price),
+            length: Number(length),
+            width: Number(width),
+            weight: Number(weight),
+            material: material,
+        })
+
+        if (res.status === 200){
+            toast.success("Product Created Successfully")
+            setLoading(false)
+            setImage('')
+            setProductName('')
+            setDescription('')
+            setLength('')
+            setWidth('')
+            setMaterial('')
+            setPrice('')
+            setWeight('')
+
+        }
+
+        else{
+            toast.error("Error creating product")
+            setLoading(false)
+        }
+    }
+
+    else{
+        setLoading(false)
+        toast.error("Please fill up all the fields")
+    }
+  };
 
   return (
     <Flex className={"flex p-10 h-[1200px] w-[800px]"}>
@@ -51,13 +95,16 @@ const AddProducts = () => {
               )}
             </div>
             <div>
-              <CldUploadWidget uploadPreset="Product Images" options={{
-                sources: ["cloudinary"]
-              }}
-              onSuccess={handleUploadImage}
-              onClose={() => {
-                document.body.style.overflow = "auto";
-              }}>
+              <CldUploadWidget
+                uploadPreset="Product Images"
+                options={{
+                  sources: ["cloudinary"],
+                }}
+                onSuccess={handleUploadImage}
+                onClose={() => {
+                  document.body.style.overflow = "auto";
+                }}
+              >
                 {({ open }) => {
                   return (
                     <Button
@@ -94,13 +141,13 @@ const AddProducts = () => {
             placeholder={"Product Material"}
           ></InputBox>
           <InputBox
-            type="number"
+            type="text"
             value={length}
             onChange={(val) => setLength(val.target.value)}
             placeholder={"Product Length"}
           ></InputBox>
           <InputBox
-            type="number"
+            type="text"
             value={width}
             onChange={(val) => setWidth(val.target.value)}
             placeholder={"Product Width"}
@@ -117,7 +164,9 @@ const AddProducts = () => {
             onChange={(val) => setPrice(val.target.value)}
             placeholder={"Product Price"}
           ></InputBox>
-          <Button>Add Product</Button>
+          <Button loading={loading} onClick={handleProductUpload}>
+            Add Product
+          </Button>
         </Flex>
       </form>
     </Flex>
