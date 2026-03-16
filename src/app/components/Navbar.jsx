@@ -244,6 +244,22 @@ let logout = async ()=>{
                         Main Page
                       </Link>
                     </ListItem>
+                    <ListItem
+                      className=" text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
+									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2"
+                      key={"Grateful Tokens Products"}
+                    >
+                      <Link
+                        href="/grateful_tokens"
+                        className="hover:font-semibold lg:hover:font-semibold"
+                        onClick={() => {
+                          setStore_page(false);
+                          setRefresh(!refresh);
+                        }}
+                      >
+                        Products
+                      </Link>
+                    </ListItem>
                     {userSignedIn ? (
                       <DropDownMenu
                         label={"Account"}

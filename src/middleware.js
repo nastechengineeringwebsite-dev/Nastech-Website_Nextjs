@@ -24,5 +24,5 @@ export async function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/grateful_tokens/account/:path*"],
+  matcher: ["/grateful_tokens/account/:path*", "/grateful_tokens/admin/:path*"],
 };

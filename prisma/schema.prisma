@@ -10,6 +10,7 @@ datasource db {
 
 model User {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  role           String   @default("user")
   email          String   @unique
   username       String
   password       String
@@ -64,6 +65,9 @@ model Product {
   description String
   thumbnail   String
   basePrice   Int
+  length      Int
+  width       Int
+  weight      Int
   material    String
   variants    ProductVariant[]
   orderItems  OrderItem[]

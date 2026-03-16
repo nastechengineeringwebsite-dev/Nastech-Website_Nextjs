@@ -13,7 +13,7 @@ export async function POST(req) {
     });
 
     if (!user) {
-      return new Response(JSON.stringify({ message: "User not found", user: false, pass_valid: true }), {
+      return new Response(JSON.stringify({ message: "User not found", user: null, pass_valid: true }), {
         status: 200,
       });
     }
@@ -21,7 +21,7 @@ export async function POST(req) {
     const validPass = await bcrypt.compare(password, user.password);
 
     if (!validPass) {
-      return new Response(JSON.stringify({ message: "Invalid Password", user: true, pass_valid: false }), {
+      return new Response(JSON.stringify({ message: "Invalid Password", user: user, pass_valid: false }), {
         status: 200,
       });
     }
@@ -35,7 +35,7 @@ export async function POST(req) {
 
     (await cookies()).set("token", token);
 
-    return new Response(JSON.stringify({ message: "User Logged in", user: true, pass_valid: true }), {
+    return new Response(JSON.stringify({ message: "User Logged in", user: user, pass_valid: true }), {
       status: 200,
     });
   } catch (error) {
