@@ -20,6 +20,13 @@ export async function GET(){
             return new Response(JSON.stringify({ message: "User logged out" , data: null}), { status: 200 });
         }
     }catch(error){
+        if (error.code === "ERR_JWT_EXPIRED") {
+            return new Response(
+              JSON.stringify({ message: "Token expired", data: null }),
+              { status: 200 }
+            );
+          }
+          
         console.log(error)
         return new Response(JSON.stringify({ message: "Error occured" }), { status: 500 });
     }

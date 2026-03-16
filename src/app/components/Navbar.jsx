@@ -116,17 +116,46 @@ let logout = async ()=>{
           <ScrollToTopButton navmenu={state}></ScrollToTopButton>
           <Container>
             <Flex className="lg:py-4 py-5 justify-between items-center flex">
+              <Flex className={"flex gap-x-4 items-center h-[96px]"}>
+
+              
               <Link href={"/"}>
+              <div className={"lg:w-24 lg:h-24 md:w-20 w-16"}>
+
                 <Image
                   src={"/images/Nas Tech Logo.png"}
                   width={148}
                   height={118}
                   alt={"Nas Tech Engineering Logo"}
-                  className={"lg:w-24 md:w-20 w-16"}
+                  
                   loading="eager"
                   priority
                 ></Image>
+              </div>
               </Link>
+              {usePathname().includes("grateful_tokens") &&
+              (
+                <>
+                
+              <Link href={"/grateful_tokens"}>
+                
+                <div className=" w-[200px] rounded-[10px] overflow-hidden">
+
+                <Image
+                  src={"/images/GratefulTokens/GratefulTokensLogo.jpg"}
+                  width={500}
+                  height={400}
+                  alt={"Grateful Tokens Logo"}
+                  className="fit"
+                  loading="eager"
+                  priority
+                ></Image>
+                </div>
+                
+              </Link>
+              </>)
+              }
+              </Flex>
               <FaBars
                 className={`lg:hidden absolute top-[50%] translate-y-[-50%] right-5  hover:cursor-pointer z-20 ${
                   state ? "text-transparent" : "text-text_primary"
