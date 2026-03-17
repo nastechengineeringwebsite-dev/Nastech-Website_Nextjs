@@ -15,7 +15,7 @@ import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const searchParams = typeof window!=="undefined"? new URLSearchParams(window.location.search):null
 
   const redirect = searchParams.get("redirect");
 
@@ -58,7 +58,7 @@ const Login = () => {
     setLoading(false);
   };
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    
 
     <form className="py-20 mb-40 w-[40%] mx-auto">
       <Flex className={"gap-y-10 flex-col"}>
@@ -107,7 +107,7 @@ const Login = () => {
         </span>
       </Flex>
     </form>
-    </Suspense>
+    
   );
 };
 
