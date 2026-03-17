@@ -4,6 +4,7 @@ import Flex from "./Flex";
 import Button from "./Button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 
 const GratefulTokenProductCard = ({ product }) => {
   const slug = product.name
@@ -11,7 +12,15 @@ const GratefulTokenProductCard = ({ product }) => {
   .replace(/\s+/g, "-")
   .replace(/[^\w-]+/g, "");
 
+  let { userSignedIn, setUserSignedIn } = useAuth()
+
   const router = useRouter()
+
+  const handleSignInCheck = ()=>{
+    if (!userSignedIn){
+      router.push('/grateful_tokens/login')
+    }
+  }
 
   return (
     <Flex
@@ -29,7 +38,7 @@ const GratefulTokenProductCard = ({ product }) => {
         </Flex>
         <Flex className={"p-4 flex flex-col bg-slate-100"}>
       <Link href={`/grateful_tokens/product/${product.id}/${slug}`}>
-          <h4 className="h-[80px] font-semibold text-text_tertiary text-2xl">
+          <h4 className="h-[80px] font-semibold text-text_tertiary text-xl">
             {product.name}
           </h4>
           </Link>
@@ -41,7 +50,7 @@ const GratefulTokenProductCard = ({ product }) => {
             <span className="font-bold text-xl text-text_secondary">
               ৳ {product.basePrice}
             </span>
-            <Button >Add to Cart</Button>
+            <Button onClick={handleSignInCheck}>Add to Cart</Button>
           </Flex>
         </Flex>
     </Flex>

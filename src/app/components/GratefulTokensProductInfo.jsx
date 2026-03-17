@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Flex from "./Flex";
 import Image from "next/image";
 import { LuCirclePlus } from "react-icons/lu";
@@ -8,9 +8,25 @@ import { LuCircleMinus } from "react-icons/lu";
 import { HiArrowSmLeft } from "react-icons/hi";
 import Button from "./Button";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 
 const GratefulTokensProductInfo = ({ id }) => {
+  
+  const router = useRouter()
+
   const [quantity, setQuantity] = useState(1);
+  const [product, setProduct] = useState(null)
+
+  let { userSignedIn, setUserSignedIn } = useAuth()
+
+
+  const handleSignInCheck = ()=>{
+    if (!userSignedIn){
+      router.push('/grateful_tokens/login')
+    }
+  }
   const handleManualValue = (e) => {
     let val = e.target.value;
     if (val <= 99) {
@@ -31,6 +47,20 @@ const GratefulTokensProductInfo = ({ id }) => {
       setQuantity(quantity - 1);
     }
   };
+
+  useEffect(()=>{
+    const getProduct = async ()=>{
+      try{
+
+        const res = await axios.get(`/api/getSingleProduct/${id}`)
+        setProduct(res.data.data)
+      }catch(error){
+        console.log(error)
+      }
+    }
+
+    getProduct()
+  },[])
   return (
     <Flex className={"flex flex-col mb-60"}>
       <Flex
@@ -42,39 +72,38 @@ const GratefulTokensProductInfo = ({ id }) => {
           <HiArrowSmLeft className="h-8 w-8 p-1 bg-[#d2deeb] rounded-full " />
         </Link>
       </Flex>
+      {product && 
       <Flex className={"flex gap-x-10 mt-10"}>
         <div className="w-[500px] h-[500px] rounded-3xl overflow-hidden">
           <Image
             src={
-              "https://res.cloudinary.com/dwgtixarr/image/upload/v1773661869/n4qwsxkxwa994hrxyx4u.jpg"
+              product.thumbnail
             }
             width={500}
             height={500}
-            alt="Test"
+            alt={`${product.name} Product Image`}
           />
         </div>
         <Flex className={"flex flex-col w-[500px]"}>
           <h1 className="text-3xl font-bold text-text_secondary h-[100px] border-b-2 border-slate-200">
-            Test TEest Test TEest Test TEest Test TEest
+            {product.name}
           </h1>
           <span className="text-2xl font-bold text-text_tertiary mt-6">
             ৳ 200
           </span>
-          <p className="text-md text-semibold text-gray-800 mt-10">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            quis voluptatum cupiditate perspiciatis quasi nobis temporibus ad et
-            eaque placeat libero eum impedit error nihil voluptates, esse animi
-            corrupti cum!
+          <p className="text-md text-semibold text-gray-800 mt-10 h-[95px]">
+            {product.description}
+            
           </p>
           <span className="text-md font-semibold text-text_tertiary mt-6">
             Size (Length x Height):{" "}
-            <span className="text-text_secondary">10cm x 10cm</span>
+            <span className="text-text_secondary">{product.length}cm x {product.width}cm</span>
           </span>
           <span className="text-md font-semibold text-text_tertiary mt-6">
-            Material: <span className="text-text_secondary">ABS</span>
+            Material: <span className="text-text_secondary">{product.material}</span>
           </span>
           <span className="text-md font-semibold text-text_tertiary mt-6">
-            Weight: <span className="text-text_secondary">100g</span>
+            Weight: <span className="text-text_secondary">{product.weight}g</span>
           </span>
           <Flex className={"flex justify-between w-[500px] items-center mt-6"}>
             <Flex className={"flex flex-row gap-x-2 items-center "}>
@@ -99,10 +128,11 @@ const GratefulTokensProductInfo = ({ id }) => {
                 />
               </Flex>
             </Flex>
-            <Button>Add to Cart</Button>
+            <Button onClick={handleSignInCheck}>Add to Cart</Button>
           </Flex>
         </Flex>
       </Flex>
+      }
     </Flex>
   );
 };
