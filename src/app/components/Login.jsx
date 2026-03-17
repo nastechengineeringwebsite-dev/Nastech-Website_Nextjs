@@ -10,15 +10,13 @@ import Button from "./Button";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const router = useRouter();
-  const searchParams = typeof window!=="undefined"? new URLSearchParams(window.location.search):null
-
-  const redirect = searchParams.get("redirect");
-
+  const redirect = typeof window!=="undefined"? new URLSearchParams(window.location.search).get("redirect"):null
+  console.log(redirect)
   let [show_password, setShow_password] = useState(false);
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -38,7 +36,7 @@ const Login = () => {
 
       // console.log(res)
       if (res.data.user && res.data.pass_valid) {
-        router.push(redirect || "/grateful_tokens/account");
+        router.push( redirect || "/grateful_tokens/account");
         router.refresh();
         setEmail("");
         setPassword("");
