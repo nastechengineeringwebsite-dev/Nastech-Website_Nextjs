@@ -4,6 +4,7 @@ import Flex from "../components/Flex";
 import Image from "next/image";
 import Container from "../components/Container";
 import GratefulTokenProducts from "../components/GratefulTokenProducts";
+import prisma from "../lib/prisma";
 
 export const metadata = {
   title: "Grateful Tokens | Nas Tech Engineering",
@@ -27,7 +28,12 @@ export const metadata = {
   },
 };
 
-const page = () => {
+
+
+const page = async () => {
+
+  const products = await prisma.product.findMany()
+
   return (
     <Container>
       <AnimatePage>
@@ -42,7 +48,7 @@ const page = () => {
           <h2 className="mx-auto font-bold text-text_secondary text-4xl mt-30 relative after:absolute after:translate-x-[-50%] after:translate-y-[50%] after:left-1/2 after:bottom-[-20px] after:w-[400px] after:h-[4px] after:bg-slate-300 after:rounded-3xl">
             Products of Grateful Tokens
           </h2>
-          <GratefulTokenProducts/>
+          <GratefulTokenProducts products={products}/>
         </Flex>
       </AnimatePage>
     </Container>

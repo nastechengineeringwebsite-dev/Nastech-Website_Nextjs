@@ -18,7 +18,7 @@ const GratefulTokenProductCard = ({ product }) => {
 
   const handleSignInCheck = ()=>{
     if (!userSignedIn){
-      router.push('/grateful_tokens/login')
+      router.push(`/grateful_tokens/login?redirect=${window.location.pathname}`)
     }
   }
 

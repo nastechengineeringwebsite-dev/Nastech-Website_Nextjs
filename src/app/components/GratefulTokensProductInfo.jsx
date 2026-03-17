@@ -12,19 +12,18 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 
-const GratefulTokensProductInfo = ({ id }) => {
+const GratefulTokensProductInfo = ({ product }) => {
   
   const router = useRouter()
 
   const [quantity, setQuantity] = useState(1);
-  const [product, setProduct] = useState(null)
 
   let { userSignedIn, setUserSignedIn } = useAuth()
 
 
   const handleSignInCheck = ()=>{
     if (!userSignedIn){
-      router.push('/grateful_tokens/login')
+      router.push(`/grateful_tokens/login?redirect=${window.location.pathname}`)
     }
   }
   const handleManualValue = (e) => {
@@ -48,19 +47,6 @@ const GratefulTokensProductInfo = ({ id }) => {
     }
   };
 
-  useEffect(()=>{
-    const getProduct = async ()=>{
-      try{
-
-        const res = await axios.get(`/api/getSingleProduct/${id}`)
-        setProduct(res.data.data)
-      }catch(error){
-        console.log(error)
-      }
-    }
-
-    getProduct()
-  },[])
   return (
     <Flex className={"flex flex-col mb-60"}>
       <Flex
