@@ -1,3 +1,4 @@
+import prisma from "@/app/lib/prisma";
 import { jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
@@ -13,8 +14,12 @@ export async function GET(){
         const payload = await jwtVerify(token, secret)
 
         if (payload){
+            
+            const user = await prisma.user.findUnique({
+                where: {id: payload.payload.id}
+            })
 
-            return new Response(JSON.stringify({ message: "User exist" , data: payload}), { status: 200 });
+            return new Response(JSON.stringify({ message: "User exist" , data: user}), { status: 200 });
         }
         else{
             return new Response(JSON.stringify({ message: "User logged out" , data: null}), { status: 200 });

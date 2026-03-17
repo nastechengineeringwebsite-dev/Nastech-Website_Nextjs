@@ -6,6 +6,7 @@ const AuthContext = createContext(null);
 
 export function AuthProvider({ children }){
   const [userSignedIn, setUserSignedIn] = useState(false);
+  // const [cartCounter, setCartCounter] = useState(0);
 
   return (
     <AuthContext.Provider value={{ userSignedIn, setUserSignedIn }}>

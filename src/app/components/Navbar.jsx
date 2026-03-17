@@ -19,6 +19,7 @@ import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
+import CartDropDownMenu from "./CartDropDownMenu";
 
 const Navbar = () => {
   axios.defaults.withCredentials = true;
@@ -33,6 +34,7 @@ const Navbar = () => {
   let [store_page, setStore_page] = useState(false);
 
   let { userSignedIn, setUserSignedIn } = useAuth();
+  let [userId, setUserId] = useState(null)
 
   let changeState = () => {
     setState(!state);
@@ -57,6 +59,8 @@ let logout = async ()=>{
 	router.push("/grateful_tokens/login")
 	setUserSignedIn(false)
 }
+
+
 
 
   useEffect(() => {
@@ -85,8 +89,10 @@ let logout = async ()=>{
       const user = await axios.get("/api/navbar");
       if (user.data.data) {
         setUserSignedIn(true);
+        setUserId(user.data.data.id)
       } else {
         setUserSignedIn(false);
+        setUserId(null)
       }
       console.log(user.data.data);
     };
@@ -313,16 +319,9 @@ let logout = async ()=>{
                       ></DropDownMenu>
                     )}
                     <ListItem
-                      className=" text-text_primary font-semibold text-[16px] after:rounded-full relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
-									after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2"
-                      key={"Shopping cart"}
+                      
                     >
-                      <Link
-                        href="/cart"
-                        className="hover:font-semibold lg:hover:font-semibold"
-                      >
-                        <FaShoppingCart />
-                      </Link>
+                     <CartDropDownMenu uid={userId}/> 
                     </ListItem>
                   </>
                 )}
