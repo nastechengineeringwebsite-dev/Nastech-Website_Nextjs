@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Container from "./Container";
 import InputBox from "./InputBox";
 import Flex from "./Flex";
@@ -58,6 +58,8 @@ const Login = () => {
     setLoading(false);
   };
   return (
+    <Suspense fallback={<div>Loading...</div>}>
+
     <form className="py-20 mb-40 w-[40%] mx-auto">
       <Flex className={"gap-y-10 flex-col"}>
         <InputBox
@@ -105,6 +107,7 @@ const Login = () => {
         </span>
       </Flex>
     </form>
+    </Suspense>
   );
 };
 
