@@ -69,7 +69,7 @@ const CartDropDownMenu = ({uid}) => {
         <Flex className="absolute bg-bg_secondary text-gray-300 font-medium text-sm p-2 rounded-full h-[20px] items-center justify-center top-0 right-0 translate-x-[100%] translate-y-[-50%]">{uid && items ? items.length : 0}</Flex>
         }
       </Flex>
-      {items.length > 0 &&
+      {items.length > 0 && userSignedIn &&
       <Flex className={`flex flex-col absolute bg-slate-200 p-3 rounded-lg left-1/2 top-[30px] translate-x-[-50%] border-gray-400 border-[1px] ${
           showCart
             ? "opacity-100 z-10 lg:top-[30px] max-h-[400px]"
