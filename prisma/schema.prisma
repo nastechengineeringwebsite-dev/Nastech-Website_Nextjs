@@ -34,11 +34,17 @@ model Order {
 
   total Int
 
-  address String
-  city    String
-  zip     String
+  fullName      String
+  email         String
+  country       String
+  phone         Int
+  address       String
+  city          String
+  zip           Int
+  transactionId String
 
-  status OrderStatus @default(Payment_Pending)
+
+  status OrderStatus @default(On_Verification)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -111,5 +117,5 @@ enum OrderStatus {
   Processing
   Delivered
   Canceled
-  Payment_Pending
+  On_Verification
 }

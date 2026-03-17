@@ -1,20 +1,18 @@
+import React from "react";
+import AnimatePage from "@/app/components/AnimatePage";
+import Container from "@/app/components/Container";
+import CheckoutInfo from "@/app/components/CheckoutInfo";
 
-import React from 'react'
-import Flex from '../../components/Flex'
-import Container from '../../components/Container'
-import AnimatePage from '../../components/AnimatePage'
 
 const page = () => {
+  
   return (
     <Container>
-        <AnimatePage>
-          
-          <Flex>
-            <h1>Checkout</h1>
-          </Flex>
-        </AnimatePage>
+      <AnimatePage>
+        <CheckoutInfo/>
+      </AnimatePage>
     </Container>
-  )
-}
+  );
+};
 
-export default page
+export default page;
