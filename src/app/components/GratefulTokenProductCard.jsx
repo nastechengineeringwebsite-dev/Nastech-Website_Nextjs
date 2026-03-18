@@ -84,6 +84,7 @@ const GratefulTokenProductCard = ({ product }) => {
       className={
         "w-[350px] flex flex-col rounded-3xl overflow-hidden shadow-2xl"
       }
+      onMouseEnter = {()=>{ router.prefetch(`/grateful_tokens/product/${product.id}/${slug}`) }}
     >
       <Flex className={"w-[350px] h-[350px] bg-slate-300"}>
         <Image
@@ -94,7 +95,7 @@ const GratefulTokenProductCard = ({ product }) => {
         ></Image>
       </Flex>
       <Flex className={"p-4 flex flex-col bg-slate-100"}>
-        <Link href={`/grateful_tokens/product/${product.id}/${slug}`}>
+        <Link href={`/grateful_tokens/product/${product.id}/${slug}`} prefetch = {true}>
           <h4 className="h-[80px] font-semibold text-text_tertiary text-xl">
             {product.name}
           </h4>

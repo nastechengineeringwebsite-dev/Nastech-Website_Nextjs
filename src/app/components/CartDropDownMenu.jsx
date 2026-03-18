@@ -56,7 +56,7 @@ const CartDropDownMenu = ({ uid }) => {
       const res = await axios.delete(`/api/cart/removeCart/${cartId}`);
   
 
-      toast.success("Card deleted successfully");
+      toast.success("Cart deleted successfully");
       
     } catch (err) {
       setCartItems(previousState);
@@ -127,7 +127,7 @@ const CartDropDownMenu = ({ uid }) => {
             </AnimatePresence>
           </motion.div>
           <Flex className={"flex items-center justify-between mt-5"}>
-            <button className="bg-bg_secondary text-gray-300 text-[14px] font-semibold px-3 py-2 rounded-full hover:cursor-pointer">
+            <button className="bg-bg_secondary text-gray-200 text-[14px] font-semibold px-3 py-2 rounded-full hover:cursor-pointer">
               <Link href={'/grateful_tokens/checkout'}>
                 Checkout
               </Link>
