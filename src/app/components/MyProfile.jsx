@@ -8,13 +8,20 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const MyProfile = ({ userInfo = null }) => {
+
   let [name, setName] = useState(userInfo.username ? userInfo.username : "");
   let [email, setEmail] = useState(userInfo.email ? userInfo.email : "");
   let [total_orders, setTotal_orders] = useState(
     userInfo.total_orders ? userInfo.total_orders : ""
   );
   let [created, setCreated] = useState(
-    userInfo.createdAt ? userInfo.createdAt : ""
+    userInfo.createdAt ? userInfo.createdAt.toLocaleString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }) : ""
   );
 
   let [editNameLoading, setEditNameLoading] = useState(false);
@@ -22,6 +29,7 @@ const MyProfile = ({ userInfo = null }) => {
 
   let [editName, setEditName] = useState(false);
   let [editEmail, setEditEmail] = useState(false);
+
 
   let handleEditUsername = async () => {
     setEditName(!editName);

@@ -43,11 +43,15 @@ model Order {
   zip           Int
   transactionId String
 
+  orderInvoiceNo  String @unique @default("N/A")
 
-  status OrderStatus @default(On_Verification)
+
+  status OrderStatus @default(Pending)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([userId])
 }
 
 model OrderItem {
@@ -62,8 +66,10 @@ model OrderItem {
   // variant   ProductVariant @relation(fields: [variantId], references: [id])
   // variantId String         @db.ObjectId
 
+  productName String
   quantity Int
   price    Int
+
 }
 
 model Product {
@@ -120,5 +126,5 @@ enum OrderStatus {
   Processing
   Delivered
   Canceled
-  On_Verification
+  Pending
 }

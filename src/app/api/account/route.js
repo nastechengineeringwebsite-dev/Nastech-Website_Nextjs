@@ -14,7 +14,13 @@ export async function GET(){
             where: {id: payload.payload.id}
         })
 
-        return new Response(JSON.stringify({ message: "User found" , data: user}), { status: 200 });
+        const orders = await prisma.order.findMany({
+            where: {
+                userId: user.id
+            }
+        })
+
+        return new Response(JSON.stringify({ message: "User found" , data: user, orders: orders}), { status: 200 });
     }
     catch (error) {
         console.error(error);

@@ -6,37 +6,9 @@ import List from './List'
 import ListItem from './ListItem'
 
 const MyOrders = ({userInfo}) => {
-    let [orders, setOrders] = useState(0)
-    if (userInfo.orders){
-
-        setOrders([
-            
-            // {
-            //     id: 22222,
-            //     date: "2023-01-01",
-            //     amount: 213,
-            //     status: "Cancelled"
-            // },
-            // {
-            //     id: 33333,
-            //     date: "2023-01-01",
-            //     amount: 299,
-            //     status: "Delivered"
-            // },
-            // {
-            //     id: 44444,
-            //     date: "2023-01-01",
-            //     amount: 500,
-            //     status: "Payment Pending"
-            // },
-            // {
-            //     id: 55555,
-            //     date: "2023-01-01",
-            //     amount: 10000,
-            //     status: "Processing"
-            // },
-        ]);
-    }
+    console.log(userInfo);
+    const orders = userInfo
+    
     
   return (
       <Flex className={"flex flex-col gap-y-5 p-10 w-[800px] h-[600px]"}>
@@ -45,11 +17,15 @@ const MyOrders = ({userInfo}) => {
 
               {orders != 0 && orders.map((order) => (
                   
-              <ListItem className={"flex justify-evenly text-slate-600 font-semibold items-center py-6 border-t-2 border-slate-300 text-sm  "}>
-                  <span className=' w-[100px]'>#{order.id}</span>
-                  <span className=' w-[100px]'>Placed at: {order.date}</span>
-                  <span className=' w-[200px]'> Amount: ৳{order.amount}</span>
-                  <span className=' w-[200px]'>Status: <span className={order.status == "Delivered" ? "text-green-600" : order.status == "Payment Pending" || order.status == "Cancelled" ? "text-red-600" : "text-yellow-500"}>{order.status}</span></span>
+              <ListItem key = {order.id} className={"flex justify-between text-slate-600 font-semibold items-center py-6 border-t-2 border-slate-300 text-sm  "}>
+                  <span className=' w-[100px]'>#{order.orderInvoiceNo}</span>
+                  <span className=' w-[150px]'>Placed at: {order.createdAt.toLocaleString("en-US", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    })}</span>
+                  <span className=' w-[150px]'> Amount: ৳{order.total}</span>
+                  <span className=' w-[200px]'>Status: <span className={order.status == "Delivered" ? "text-green-600" : order.status == "Pending" || order.status == "Cancelled" ? "text-red-600" : "text-yellow-500"}>{order.status}</span></span>
               </ListItem>
               )) }
           </List>

@@ -12,12 +12,12 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 
-const AccountProfile = () => {
+const AccountProfile = ({user, order}) => {
 
   const router = useRouter()
 
-  let [username, setUsername] = useState(null);
-  let [userInfo, setUserInfo] = useState(null)
+  let [username, setUsername] = useState(user.username);
+
   let [currrentInfo, setCurrentInfo] = useState(0);
 
   let {userSignedIn, setUserSignedIn} = useAuth()
@@ -37,20 +37,6 @@ const AccountProfile = () => {
     setCartItems([])
   }
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const res = await axios.get("/api/account");
-        const user = res.data.data;
-        setUserInfo(user)
-        setUsername(user.username);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getUser();
-  }, []);
 
   return (
     <Flex className={"flex flex-col"}>
@@ -86,8 +72,8 @@ const AccountProfile = () => {
             </ListItem>
           </List>
           <Flex>
-            {currrentInfo === 0 && userInfo && <MyProfile userInfo={userInfo} />}
-            {currrentInfo === 1 && userInfo && <MyOrders userInfo={userInfo} />}
+            {currrentInfo === 0 && <MyProfile userInfo={user} />}
+            {currrentInfo === 1 && <MyOrders userInfo={order} />}
           </Flex>
         </Flex>
       </Flex>
