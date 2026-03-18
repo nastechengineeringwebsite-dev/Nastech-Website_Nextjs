@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import React from "react";
 import AnimatePage from "../components/AnimatePage";
 import Flex from "../components/Flex";
