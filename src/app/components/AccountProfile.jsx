@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 
 const AccountProfile = () => {
 
@@ -21,6 +22,8 @@ const AccountProfile = () => {
 
   let {userSignedIn, setUserSignedIn} = useAuth()
 
+  let {cartItems, setCartItems} = useCart()
+
   let [infoList, setInfoList] = useState([
     { key: "My Profile" },
     { key: "My Orders" },
@@ -31,6 +34,7 @@ const AccountProfile = () => {
     await axios.get('/api/logout')
     router.push("/grateful_tokens/login")
     setUserSignedIn(false)
+    setCartItems([])
   }
 
   useEffect(() => {

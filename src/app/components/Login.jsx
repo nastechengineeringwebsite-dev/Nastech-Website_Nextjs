@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 
 const Login = () => {
   const router = useRouter();
@@ -40,7 +41,8 @@ const Login = () => {
         router.refresh();
         setEmail("");
         setPassword("");
-        setUserSignedIn(true);
+        setUserSignedIn(res.data.user);
+        
         setLoading(false);
       } else if (!res.data.user){
         setLoading(false);

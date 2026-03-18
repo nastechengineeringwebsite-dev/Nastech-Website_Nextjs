@@ -8,6 +8,7 @@ import InitialLoadingAnimation from "./components/InitialLoading";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
 
 
 const poppins = Poppins({
@@ -70,6 +71,7 @@ export default function RootLayout({ children }) {
 
       <body className={`${poppins.className} antialiased`}>
           <AuthProvider>
+          <CartProvider>
           <InitialLoadingAnimation />
           <ToastContainer
             className={
@@ -96,6 +98,7 @@ export default function RootLayout({ children }) {
 
           <Analytics />
           <SpeedInsights />
+          </CartProvider>
           </AuthProvider>
       </body>
     </html>

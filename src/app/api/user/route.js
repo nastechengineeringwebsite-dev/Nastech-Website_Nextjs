@@ -23,7 +23,7 @@ export async function POST(req) {
 
     (await cookies()).set('token',token)
 
-    return new Response(JSON.stringify({ message: "User created successfully" }), { status: 201 });
+    return new Response(JSON.stringify({ message: "User created successfully", data: user }), { status: 201 });
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ error: "User creation failed" }), { status: 500 });

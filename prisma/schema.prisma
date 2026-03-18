@@ -59,8 +59,8 @@ model OrderItem {
   product   Product @relation(fields: [productId], references: [id])
   productId String  @db.ObjectId
 
-  variant   ProductVariant @relation(fields: [variantId], references: [id])
-  variantId String         @db.ObjectId
+  // variant   ProductVariant @relation(fields: [variantId], references: [id])
+  // variantId String         @db.ObjectId
 
   quantity Int
   price    Int
@@ -76,23 +76,23 @@ model Product {
   width       Int
   weight      Int
   material    String
-  variants    ProductVariant[]
+  // variants    ProductVariant[]
   orderItems  OrderItem[]
   cartItems   CartItem[]
   createdAt   DateTime         @default(now())
   updatedAt   DateTime         @updatedAt
 }
 
-model ProductVariant {
-  id         String      @id @default(auto()) @map("_id") @db.ObjectId
-  product    Product     @relation(fields: [productId], references: [id])
-  productId  String      @db.ObjectId
-  color      String
-  material   String
-  price      Int
-  cartItems  CartItem[]
-  orderItems OrderItem[]
-}
+// model ProductVariant {
+//   id         String      @id @default(auto()) @map("_id") @db.ObjectId
+//   product    Product     @relation(fields: [productId], references: [id])
+//   productId  String      @db.ObjectId
+//   color      String
+//   material   String
+//   price      Int
+//   cartItems  CartItem[]
+//   orderItems OrderItem[]
+// }
 
 model CartItem {
   id String @id @default(auto()) @map("_id") @db.ObjectId
@@ -103,14 +103,16 @@ model CartItem {
   product   Product @relation(fields: [productId], references: [id])
   productId String  @db.ObjectId
 
-  variant   ProductVariant @relation(fields: [variantId], references: [id])
-  variantId String         @db.ObjectId
+  // variant   ProductVariant @relation(fields: [variantId], references: [id])
+  // variantId String         @db.ObjectId
 
+  thumbnail String
   productName String
   quantity Int
   price    Int
 
-  @@unique([userId, productId, variantId])
+
+  @@unique([userId, productId])
   @@index([userId])
 }
 

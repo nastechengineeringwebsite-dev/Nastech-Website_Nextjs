@@ -11,19 +11,68 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
+import { toast } from "react-toastify";
 
 const GratefulTokensProductInfo = ({ product }) => {
   
   const router = useRouter()
 
   const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(false)
 
-  let { userSignedIn, setUserSignedIn } = useAuth()
+  const { userSignedIn, setUserSignedIn } = useAuth()
+
+  const { cartItems, setCartItems } = useCart()
 
 
-  const handleSignInCheck = ()=>{
+  const handleAddtoCart = async ()=>{
+    const redirectUrl = `/grateful_tokens/login?redirect=${window.location.pathname}`
+
+    router.prefetch(redirectUrl)
     if (!userSignedIn){
-      router.push(`/grateful_tokens/login?redirect=${window.location.pathname}`)
+      router.push(redirectUrl)
+    }
+    else{
+
+      try {
+        setLoading(true);
+    
+        const uid = userSignedIn.id;
+    
+        const res = await axios.post('/api/cart/addCart', {
+          id: uid,
+          productId: product.id,
+          thumbnail: product.thumbnail,
+          quantity: quantity,
+          price: Number(product.basePrice),
+          productName: product.name,
+        });
+    
+        
+        setCartItems((prev) => {
+          const existing = prev.find(
+            (item) => item.productId === product.id
+          );
+    
+          if (existing) {
+            return prev.map((item) =>
+              item.productId === product.id
+                ? { ...item, quantity: item.quantity + quantity }
+                : item
+            );
+          }
+          
+          return [...prev, res.data.data]; 
+        });
+        toast.success("Product added to cart successfully");
+      } catch (err) {
+        toast.error("Failed to add product to cart");
+        console.log(err);
+      } finally {
+        setLoading(false);
+        setQuantity(1);
+      }
     }
   }
   const handleManualValue = (e) => {
@@ -114,7 +163,7 @@ const GratefulTokensProductInfo = ({ product }) => {
                 />
               </Flex>
             </Flex>
-            <Button onClick={handleSignInCheck}>Add to Cart</Button>
+            <Button onClick={handleAddtoCart} loading={loading}>Add to Cart</Button>
           </Flex>
         </Flex>
       </Flex>

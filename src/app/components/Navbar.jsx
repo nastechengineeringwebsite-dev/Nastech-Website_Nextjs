@@ -20,6 +20,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import CartDropDownMenu from "./CartDropDownMenu";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
   axios.defaults.withCredentials = true;
@@ -35,6 +36,8 @@ const Navbar = () => {
 
   let { userSignedIn, setUserSignedIn } = useAuth();
   let [userId, setUserId] = useState(null)
+
+  let { cartItems, setCartItems } = useCart()
 
   let changeState = () => {
     setState(!state);
@@ -58,6 +61,7 @@ let logout = async ()=>{
 	await axios.get('/api/logout')
 	router.push("/grateful_tokens/login")
 	setUserSignedIn(false)
+  setCartItems([])
 }
 
 
@@ -88,17 +92,22 @@ let logout = async ()=>{
     const check = async () => {
       const user = await axios.get("/api/navbar");
       if (user.data.data) {
-        setUserSignedIn(true);
+        setUserSignedIn(user.data.data);
         setUserId(user.data.data.id)
+
+        const cart = await axios.get(`/api/cart/getCart/${user.data.data.id}`)
+        if (cart.data.data) {
+          setCartItems(cart.data.data)
+        }
       } else {
         setUserSignedIn(false);
         setUserId(null)
+        setCartItems([])
       }
-      console.log(user.data.data);
     };
 
     check();
-  }, [refresh]);
+  }, [refresh,  userSignedIn?.id]);
 
   return (
     <>

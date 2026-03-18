@@ -58,7 +58,7 @@ const Signup = () => {
                 setLoading(false)
                 if (res.status == 201){
                     toast.success("Account created successfully")
-                    setUserSignedIn(true)
+                    setUserSignedIn(res.data.data)
                     router.push("/grateful_tokens/account")
                 }
                 else{
