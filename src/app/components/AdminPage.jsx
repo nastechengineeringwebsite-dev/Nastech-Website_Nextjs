@@ -9,8 +9,9 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import axios from "axios";
 import AddProducts from "./AddProducts";
+import AdminOrdersInfo from "./AdminOrdersInfo";
 
-const AdminPage = () => {
+const AdminPage = ({orders}) => {
   const router = useRouter();
 
   let [username, setUsername] = useState(null);
@@ -22,7 +23,7 @@ const AdminPage = () => {
   let [infoList, setInfoList] = useState([
     { key: "Add Products", component: <AddProducts /> },
     { key: "Products", component: <AddProducts /> },
-    { key: "Orders", component: <AddProducts /> },
+    { key: "Orders", component: <AdminOrdersInfo orders={orders} /> },
     { key: "Users", component: <AddProducts /> },
   ]);
 
@@ -87,6 +88,7 @@ const AdminPage = () => {
           </Flex> */}
           <Flex>
             {currrentInfo === 0 && <AddProducts/>}
+            {currrentInfo === 2 && <AdminOrdersInfo orders={orders}/>}
             
           </Flex>
         </Flex>

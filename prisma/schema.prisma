@@ -67,8 +67,12 @@ model OrderItem {
   // variantId String         @db.ObjectId
 
   productName String
+  thumbnail String
   quantity Int
   price    Int
+
+
+  @@index([orderId])
 
 }
 
@@ -125,6 +129,6 @@ model CartItem {
 enum OrderStatus {
   Processing
   Delivered
-  Canceled
+  Cancelled
   Pending
 }
