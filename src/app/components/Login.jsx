@@ -37,6 +37,7 @@ const Login = () => {
 
       // console.log(res)
       if (res.data.user && res.data.pass_valid) {
+        
         router.push( redirect || "/grateful_tokens/account");
         router.refresh();
         setEmail("");

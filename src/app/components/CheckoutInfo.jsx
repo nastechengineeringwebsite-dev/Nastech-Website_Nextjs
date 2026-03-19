@@ -102,6 +102,19 @@ const CheckoutInfo = () => {
 
                     router.push(`/grateful_tokens/order-success/${res.data.data.orderInvoiceNo}`)
 
+                    await axios.post(`/api/email/order_email`, {
+                        email: email,
+                        name: fullName,
+                        orderId: res.data.data.orderInvoiceNo,
+                        date: new Date(res.data.data.createdAt).toLocaleString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "numeric",
+                        })
+                    })
+
 
                 }).catch((err) => {
                     setLoading(false)

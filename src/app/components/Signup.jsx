@@ -54,12 +54,13 @@ const Signup = () => {
                 username: name,
                 email,
                 password
-            }).then((res)=>{
+            }).then(async (res)=>{
                 setLoading(false)
                 if (res.status == 201){
                     toast.success("Account created successfully")
                     setUserSignedIn(res.data.data)
                     router.push("/grateful_tokens/account")
+                    await axios.post(`/api/email/registration_email`, {email: res.data.data.email, name: res.data.data.username});
                 }
                 else{
                     
