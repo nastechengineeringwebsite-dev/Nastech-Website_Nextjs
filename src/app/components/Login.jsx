@@ -61,18 +61,18 @@ const Login = () => {
   return (
     
 
-    <form className="py-20 mb-40 w-[40%] mx-auto">
-      <Flex className={"gap-y-10 flex-col"}>
+    <form className="py-20 mb-40 lg:w-[40%] md:w-[60%] md:max-w-[400px] w-[90%] lg:mt-0 mt-36 mx-auto">
+      <Flex className={"flex lg:gap-y-10 gap-y-7 flex-col"}>
         <InputBox
           placeholder={"Email Address"}
           type="email"
           value={email}
           onChange={(val) => setEmail(val.target.value)}
         ></InputBox>
-        <Flex className={"relative"}>
+        <Flex className={"flex relative"}>
           <div
             className={
-              "text-text_secondary hover:cursor-pointer absolute bottom-[15%] right-[4%] z-10"
+              "text-text_secondary hover:cursor-pointer absolute bottom-[50%] translate-y-[50%] right-[4%] z-10"
             }
             onClick={() => {
               setShow_password(!show_password);
@@ -97,7 +97,7 @@ const Login = () => {
           Login
         </Button>
 
-        <span className="mx-auto">
+        <span className="mx-auto text-sm">
           Don't have an account?{" "}
           <Link
             className="text-text_secondary font-semibold"

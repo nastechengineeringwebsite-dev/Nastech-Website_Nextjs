@@ -107,7 +107,8 @@ const Button = ({
 					  }
 			}
 		>
-			<Flex className={"absolute right-1 top-1/2 -translate-y-1/2 z-10"}>
+			{loading ?
+			<Flex className={"justify-center items-center z-10"}>
 				{isClient && (
 					<ClipLoader 
 					color={invert ? "#EAF3FF" : "#00000"}
@@ -115,10 +116,12 @@ const Button = ({
 					size={20}
 				/>
 				)}
-			</Flex>
+				</Flex> 
+				:
 			<Flex className={"flex relative w-full justify-center"}>
 				<span className=' font-medium'>{children}</span>
 			</Flex>
+			}
 		</button>
 	)
 }

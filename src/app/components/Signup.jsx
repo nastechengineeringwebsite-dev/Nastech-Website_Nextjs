@@ -79,23 +79,23 @@ const Signup = () => {
     }
 
     return (
-        <form className="py-20 mb-40 w-[40%] mx-auto">
-            <Flex className={"gap-y-10 flex-col"}>
+        <form className="py-20 mb-40 lg:w-[40%] md:w-[60%] md:max-w-[400px] w-[90%] lg:mt-0 mt-28 mx-auto">
+            <Flex className={"flex lg:gap-y-10 gap-y-7 flex-col"}>
                 <InputBox placeholder={"Username"} type="text" value = {name} onChange = {(val)=>setName(val.target.value)}></InputBox>
                 <InputBox placeholder={"Email Address"} type="email" value = {email} onChange = {(val)=>setEmail(val.target.value)}></InputBox>
                 <Flex className={"relative"}>
-                    <div className={"text-text_secondary hover:cursor-pointer absolute bottom-[15%] right-[4%] z-10"} onClick={() => { setShow_password(!show_password) }} >
+                    <div className={"text-text_secondary hover:cursor-pointer absolute bottom-[50%] translate-y-[50%] right-[4%] z-10"} onClick={() => { setShow_password(!show_password) }} >
                         {!show_password ? <FaEye /> : <FaEyeSlash />}
                     </div>
                     <InputBox placeholder={"Password"} type={show_password ? 'text' : 'password'} value = {password} onChange = {(val)=>setPassword(val.target.value)}></InputBox>
                 </Flex>
                 <Flex className={"relative"}>
-                    <div className={"text-text_secondary hover:cursor-pointer absolute bottom-[15%] right-[4%] z-10"} onClick={() => { setShow_confirm_pass(!show_confirm_pass) }}>
+                    <div className={"text-text_secondary hover:cursor-pointer absolute bottom-[50%] translate-y-[50%] right-[4%] z-10"} onClick={() => { setShow_confirm_pass(!show_confirm_pass) }}>
                         {!show_confirm_pass ? <FaEye /> : <FaEyeSlash />}
                     </div>
                     <InputBox placeholder={"Confirm Password"} type={show_confirm_pass ? 'text' : 'password'} value = {con_password} onChange = {(val)=>setConPassword(val.target.value)}></InputBox>
                 </Flex>
-                <Flex className={"flex-col bg-blue-200 p-4 font-medium rounded-2xl text-slate-600"}>
+                <Flex className={"flex flex-col gap-y-2 bg-blue-200 p-4 font-medium md:rounded-2xl rounded-xl text-slate-600 md:text-sm text-xs"}>
                     <span>Password must include:</span>
                     <span>•	Minimum 8 characters</span>
                     <span>•	At least one number 0-9</span>
@@ -107,7 +107,7 @@ const Signup = () => {
                 </Flex>
                 <Button className={"mt-4"} onClick={createUser} loading = {loading} type="submit">Create Account</Button>
 
-                <span className="mx-auto">Already have an account? <Link className="text-text_secondary font-semibold" href="/grateful_tokens/login">Log in</Link></span>
+                <span className="mx-auto text-sm">Already have an account? <Link className="text-text_secondary font-semibold" href="/grateful_tokens/login">Log in</Link></span>
             </Flex>
 
 
