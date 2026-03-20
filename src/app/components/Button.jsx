@@ -24,7 +24,7 @@ const Button = ({
 
 	return disabled ? (
 		<button
-			className={` lg:py-2 py-1 px-4 lg:px-8 overflow-hidden ${
+			className={` lg:py-2 py-1 px-2 lg:px-8 overflow-hidden ${
 				invert
 					? "bg-button_yellow text-text-primary border-button_yellow "
 					: "bg-button_yellow text-text_tertiary border-button_yellow"
@@ -88,11 +88,11 @@ const Button = ({
 		</Link>
 	) : (
 		<button
-			className={` lg:py-2 py-1 px-4 lg:px-8 overflow-hidden relative ${
+			className={` lg:py-2 py-1 px-2 lg:px-8 overflow-hidden relative ${
 				invert
 					? "bg-button_yellow text-text_tertiary border-button_yellow"
 					: "bg-button_yellow text-text_tertiary border-button_yellow"
-			} rounded-full inline-block lg:text-[17px] text-[14px] border-2 ${
+			} rounded-full inline-block lg:text-[17px] text-[13px] border-2 ${
 				!loading
 					? invert
 						? "hover:bg-white hover:text-button_yellow duration-150 hover:cursor-pointer"

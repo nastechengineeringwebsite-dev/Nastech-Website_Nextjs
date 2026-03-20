@@ -47,7 +47,7 @@ const page = async () => {
             height={500}
             width={1920}
           ></Image>
-          <h2 className="mx-auto font-bold text-text_secondary lg:text-4xl text-2xl lg:mt-30 mt-20 relative after:absolute after:translate-x-[-50%] after:translate-y-[50%] after:left-1/2 after:bottom-[-20px] lg:after:w-[400px] after:w-[200px] lg:after:h-[4px] after:h-[3px] after:bg-slate-300 after:rounded-3xl">
+          <h2 className="mx-auto font-bold text-text_secondary lg:text-4xl text-2xl lg:mt-30 mt-20 relative after:absolute after:translate-x-[-50%] after:translate-y-[50%] after:left-1/2 after:bottom-[-20px] lg:after:w-[400px] after:w-[200px] lg:after:h-[4px] after:h-[3px] after:bg-slate-300 after:rounded-3xl text-center">
             Products of Grateful Tokens
           </h2>
           <GratefulTokenProducts products={products}/>

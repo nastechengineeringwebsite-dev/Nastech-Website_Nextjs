@@ -100,7 +100,7 @@ const GratefulTokensProductInfo = ({ product }) => {
     <Flex className={"flex flex-col mb-60"}>
       <Flex
         className={
-          "flex mt-36 md:mt-32 lg:mt-10 items-center  font-bold text-darker_blue text-[14px] gap-1"
+          "flex mt-36 md:mt-36 lg:mt-10 items-center  font-bold text-darker_blue text-[14px] gap-1"
         }
       >
         <Link href={"/grateful_tokens"}>
@@ -108,8 +108,8 @@ const GratefulTokensProductInfo = ({ product }) => {
         </Link>
       </Flex>
       {product && 
-      <Flex className={"flex gap-x-10 mt-10"}>
-        <div className="w-[500px] h-[500px] rounded-3xl overflow-hidden">
+      <Flex className={"flex md:flex-row flex-col xl:gap-x-10 md:gap-x-8 mt-10 items-center"}>
+        <div className="xl:w-[500px] xl:h-[500px] lg:w-[450px] lg:h-[450px] md:w-[300px] md:h-[300px] w-[300px] h-[300px] rounded-3xl overflow-hidden">
           <Image
             src={
               product.thumbnail
@@ -119,8 +119,8 @@ const GratefulTokensProductInfo = ({ product }) => {
             alt={`${product.name} Product Image`}
           />
         </div>
-        <Flex className={"flex flex-col w-[500px]"}>
-          <h1 className="text-3xl font-bold text-text_secondary h-[100px] border-b-2 border-slate-200">
+        <Flex className={"flex flex-col lg:w-[500px] md:w-[300px] w-[95%] lg:mt-0 mt-10"}>
+          <h1 className="lg:text-3xl md:text-xl text-2xl font-bold text-text_secondary md:h-[80px] h-[100px] border-b-2 border-slate-200">
             {product.name}
           </h1>
           <span className="text-2xl font-bold text-text_tertiary mt-6">
@@ -140,12 +140,12 @@ const GratefulTokensProductInfo = ({ product }) => {
           <span className="text-md font-semibold text-text_tertiary mt-6">
             Weight: <span className="text-text_secondary">{product.weight}g</span>
           </span>
-          <Flex className={"flex justify-between w-[500px] items-center mt-6"}>
+          <Flex className={"flex justify-between lg:w-[500px] md:w-[350px] w-[95%] items-center mt-6 flex-wrap gap-y-10"}>
             <Flex className={"flex flex-row gap-x-2 items-center "}>
               <span className="text-lg font-semibold text-text_tertiary">
                 Quantity:
               </span>
-              <Flex className={"flex flex-row gap-x-4 items-center text-2xl "}>
+              <Flex className={"flex flex-row gap-x-4 items-center lg:text-2xl text-xl "}>
                 <LuCirclePlus
                   className="text-text_secondary hover:cursor-pointer"
                   onClick={increaseVal}
@@ -163,7 +163,7 @@ const GratefulTokensProductInfo = ({ product }) => {
                 />
               </Flex>
             </Flex>
-            <Button onClick={handleAddtoCart} loading={loading}>Add to Cart</Button>
+            <Button onClick={handleAddtoCart} loading={loading} className={"px-4"}>Add to Cart</Button>
           </Flex>
         </Flex>
       </Flex>

@@ -82,12 +82,12 @@ const GratefulTokenProductCard = ({ product }) => {
   return (
     <Flex
       className={
-        "lg:w-[350px] w-[200px] flex flex-col lg:rounded-3xl rounded-xl overflow-hidden shadow-2xl"
+        "lg:w-[350px] md:w-[220px] w-[180px] flex flex-col lg:rounded-3xl rounded-xl overflow-hidden shadow-2xl"
       }
       onMouseEnter = {()=>{ router.prefetch(`/grateful_tokens/product/${product.id}/${slug}`) }}
     >
       <Link href={`/grateful_tokens/product/${product.id}/${slug}`} prefetch = {true}>
-      <Flex className={"lg:w-[350px] lg:h-[350px] w-[200px] h-[200px] bg-slate-300"}>
+      <Flex className={"lg:w-[350px] lg:h-[350px] md:w-[220px] md:h-[220px] w-[180px] h-[180px] bg-slate-300"}>
         <Image
           src={product.thumbnail}
           alt={`${product.name} image card`}
