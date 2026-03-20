@@ -61,7 +61,7 @@ const Login = () => {
   return (
     
 
-    <form className="py-20 mb-40 lg:w-[40%] md:w-[60%] md:max-w-[400px] w-[90%] lg:mt-0 mt-36 mx-auto">
+    <form className="py-20 mb-40 lg:w-[40%] md:w-[60%] md:max-w-[400px] w-[90%] max-w-[350px] lg:mt-0 mt-36 mx-auto">
       <Flex className={"flex lg:gap-y-10 gap-y-7 flex-col"}>
         <InputBox
           placeholder={"Email Address"}

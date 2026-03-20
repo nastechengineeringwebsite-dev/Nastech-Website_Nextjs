@@ -19,7 +19,8 @@ const page = async () => {
     const orders = await prisma.order.findMany({
         where: {
             userId: user.id
-        }
+        },
+        orderBy: { createdAt: "desc" },
     })
 
     // return new Response(JSON.stringify({ message: "User found" , data: user, orders: orders}), { status: 200 });

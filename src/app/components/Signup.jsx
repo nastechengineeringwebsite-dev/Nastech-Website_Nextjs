@@ -79,7 +79,7 @@ const Signup = () => {
     }
 
     return (
-        <form className="py-20 mb-40 lg:w-[40%] md:w-[60%] md:max-w-[400px] w-[90%] lg:mt-0 mt-28 mx-auto">
+        <form className="py-20 mb-40 lg:w-[40%] md:w-[60%] md:max-w-[400px] w-[90%]  max-w-[350px] lg:mt-0 mt-28 mx-auto">
             <Flex className={"flex lg:gap-y-10 gap-y-7 flex-col"}>
                 <InputBox placeholder={"Username"} type="text" value = {name} onChange = {(val)=>setName(val.target.value)}></InputBox>
                 <InputBox placeholder={"Email Address"} type="email" value = {email} onChange = {(val)=>setEmail(val.target.value)}></InputBox>

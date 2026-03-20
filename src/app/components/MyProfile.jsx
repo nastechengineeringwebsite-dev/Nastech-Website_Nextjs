@@ -81,9 +81,9 @@ const MyProfile = ({ userInfo = null }) => {
   };
 
   return (
-    <Flex className={"flex flex-col gap-y-5 p-10 w-[800px] h-[600px]"}>
-      <Flex className={"relative"}>
-        <span className="text-slate-500 font-semibold absolute top-[25%]">
+    <Flex className={"flex flex-col gap-y-5 lg:p-10 lg:pt-0 pt-5 lg:w-[800px] w-[100%] h-[600px]"}>
+      <Flex className={"flex relative items-center"}>
+        <span className="text-slate-500 md:text-base text-xs font-semibold absolute top-[50%] translate-y-[-50%]">
           Username
         </span>
         <InputBox
@@ -91,19 +91,19 @@ const MyProfile = ({ userInfo = null }) => {
           type="text"
           value={name ? name : " "}
           onChange={(val) => setName(val.target.value)}
-          className={"pl-[200px] "}
+          className={"md:pl-[200px] pl-[100px]"}
           disabled={!editName}
         ></InputBox>
         <Button
-          className={"ml-10 w-[100px]"}
+          className={"md:ml-10 ml-2 w-[100px]"}
           onClick={handleEditUsername}
           loading={editNameLoading}
         >
           {editName ? "Save" : "Edit"}
         </Button>
       </Flex>
-      <Flex className={"relative"}>
-        <span className="text-slate-500 font-semibold absolute top-[25%]">
+      <Flex className={"flex relative items-center"}>
+        <span className="text-slate-500 md:text-base text-xs font-semibold absolute top-[50%] translate-y-[-50%]">
           Email Address
         </span>
         <InputBox
@@ -111,11 +111,11 @@ const MyProfile = ({ userInfo = null }) => {
           type="email"
           value={email ? email : " "}
           onChange={(val) => setEmail(val.target.value)}
-          className={"pl-[200px] "}
+          className={"md:pl-[200px] pl-[100px] "}
           disabled={!editEmail}
         ></InputBox>
         <Button
-          className={"ml-10 w-[100px]"}
+          className={"md:ml-10 ml-2 w-[100px]"}
           onClick={handleEditEmail}
           loading = {editEmailLoading}
         >
@@ -123,26 +123,26 @@ const MyProfile = ({ userInfo = null }) => {
         </Button>
       </Flex>
       <Flex className={"relative"}>
-        <span className="text-slate-500 font-semibold absolute top-[25%]">
+        <span className="text-slate-500 md:text-base text-xs font-semibold absolute top-[50%] translate-y-[-50%]">
           Total Orders Placed
         </span>
         <InputBox
           mandetory={false}
           type="number"
           value={total_orders ? total_orders : "0"}
-          className={"pl-[200px] "}
+          className={"md:pl-[200px] pl-[120px] "}
           disabled={true}
         ></InputBox>
       </Flex>
       <Flex className={"relative"}>
-        <span className="text-slate-500 font-semibold absolute top-[25%]">
+        <span className="text-slate-500 md:text-base text-xs font-semibold absolute top-[50%] translate-y-[-50%]">
           Account Created At
         </span>
         <InputBox
           mandetory={false}
           type="text"
           value={created ? created : "NaN"}
-          className={"pl-[200px] "}
+          className={"md:pl-[200px]  pl-[120px]"}
           disabled={true}
         ></InputBox>
       </Flex>
