@@ -65,10 +65,10 @@ const OrderSuccessInfo = ({ oid }) => {
     <Flex className="w-full flex justify-center items-center my-60 flex-col gap-y-12">
       <Flex
         ref={boxRef}
-        className="flex flex-col items-center gap-y-7 p-10 rounded-2xl shadow-xl bg-blue-50 text-3xl font-semibold text-gray-700"
+        className="flex flex-col items-center gap-y-7 p-10 rounded-2xl shadow-xl bg-blue-50 lg:text-3xl text-lg font-semibold text-gray-700 text-center"
       >
-        <h2 className="text-4xl">Order Success!</h2>
-        <h3>Order Invoice No: <span className="text-text_secondary">#{oid}</span></h3>
+        <h2 className="lg:text-4xl text-2xl">Order Success!</h2>
+        <h3>Order Invoice No: <span className="text-text_secondary lg:text-3xl text-lg">#{oid}</span></h3>
       </Flex>
       
       <Button link={"/grateful_tokens"}>Return to Products</Button>
