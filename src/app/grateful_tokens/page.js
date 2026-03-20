@@ -39,15 +39,15 @@ const page = async () => {
   return (
     <Container>
       <AnimatePage>
-        <Flex className={"flex flex-col mb-20"}>
+        <Flex className={"flex flex-col mb-20 lg:mt-0 mt-40"}>
           <Image
             src={"/images/GratefulTokens/banner.jpg"}
             alt={"Grateful Tokens Cover Page"}
-            className="rounded-b-3xl"
+            className={"lg:rounded-b-3xl lg:rounded-t-none rounded-2xl"}
             height={500}
             width={1920}
           ></Image>
-          <h2 className="mx-auto font-bold text-text_secondary text-4xl mt-30 relative after:absolute after:translate-x-[-50%] after:translate-y-[50%] after:left-1/2 after:bottom-[-20px] after:w-[400px] after:h-[4px] after:bg-slate-300 after:rounded-3xl">
+          <h2 className="mx-auto font-bold text-text_secondary lg:text-4xl text-2xl lg:mt-30 mt-20 relative after:absolute after:translate-x-[-50%] after:translate-y-[50%] after:left-1/2 after:bottom-[-20px] lg:after:w-[400px] after:w-[200px] lg:after:h-[4px] after:h-[3px] after:bg-slate-300 after:rounded-3xl">
             Products of Grateful Tokens
           </h2>
           <GratefulTokenProducts products={products}/>

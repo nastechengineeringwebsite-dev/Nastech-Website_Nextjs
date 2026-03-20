@@ -82,11 +82,12 @@ const GratefulTokenProductCard = ({ product }) => {
   return (
     <Flex
       className={
-        "w-[350px] flex flex-col rounded-3xl overflow-hidden shadow-2xl"
+        "lg:w-[350px] w-[200px] flex flex-col lg:rounded-3xl rounded-xl overflow-hidden shadow-2xl"
       }
       onMouseEnter = {()=>{ router.prefetch(`/grateful_tokens/product/${product.id}/${slug}`) }}
     >
-      <Flex className={"w-[350px] h-[350px] bg-slate-300"}>
+      <Link href={`/grateful_tokens/product/${product.id}/${slug}`} prefetch = {true}>
+      <Flex className={"lg:w-[350px] lg:h-[350px] w-[200px] h-[200px] bg-slate-300"}>
         <Image
           src={product.thumbnail}
           alt={`${product.name} image card`}
@@ -94,21 +95,22 @@ const GratefulTokenProductCard = ({ product }) => {
           width={400}
         ></Image>
       </Flex>
-      <Flex className={"p-4 flex flex-col bg-slate-100"}>
+      </Link>
+      <Flex className={"lg:p-4 p-2 flex flex-col bg-slate-100"}>
         <Link href={`/grateful_tokens/product/${product.id}/${slug}`} prefetch = {true}>
-          <h4 className="h-[80px] font-semibold text-text_tertiary text-xl">
+          <h4 className="lg:h-[80px] h-[60px] font-semibold text-text_tertiary lg:text-xl text-sm">
             {product.name}
           </h4>
         </Link>
         <Flex
           className={
-            "justify-between items-center border-t-[2px] pt-4 border-slate-300"
+            "flex justify-between items-center border-t-[2px] pt-4 border-slate-300"
           }
         >
-          <span className="font-bold text-xl text-text_secondary">
+          <span className="font-bold lg:text-xl text-sm text-text_secondary">
             ৳ {product.basePrice}
           </span>
-          <Button onClick={handleCartAdd} loading={loading}>Add to Cart</Button>
+          <Button onClick={handleCartAdd} loading={loading} className={"lg:text-lg text-sm "}>Add to Cart</Button>
         </Flex>
       </Flex>
     </Flex>

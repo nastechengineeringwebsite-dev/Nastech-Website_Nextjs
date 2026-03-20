@@ -8,10 +8,13 @@ import axios from "axios";
 const GratefulTokenProducts = ({products}) => {
   
   return (
-    <Flex className={"mt-20 grid grid-cols-3 gap-10"}>
+    <Flex className={"mt-20 flex flex-cols lg:gap-x-8 gap-x-4 gap-y-14 flex-wrap"}>
       {products.map((item, index) => (
         <GratefulTokenProductCard product={item} />
       ))}
+      {/* {products.map((item, index) => (
+        <GratefulTokenProductCard product={item} />
+      ))} */}
     </Flex>
   );
 };
