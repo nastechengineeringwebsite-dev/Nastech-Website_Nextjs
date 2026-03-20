@@ -154,7 +154,7 @@ let logout = async ()=>{
                 
               <Link href={"/grateful_tokens"}>
                 
-                <div className=" w-[200px] rounded-[10px] overflow-hidden">
+                <div className=" lg:w-[200px] w-[120px] rounded-[10px] overflow-hidden">
 
                 <Image
                   src={"/images/GratefulTokens/GratefulTokensLogo.jpg"}
@@ -171,12 +171,17 @@ let logout = async ()=>{
               </>)
               }
               </Flex>
+              <Flex className={'flex flex-row gap-x-8 lg:hidden items-center justify-end'}>
+
+              <CartDropDownMenu uid={userId}/>
+              {/* absolute top-[50%] translate-y-[-50%] right-5 */}
               <FaBars
-                className={`lg:hidden absolute top-[50%] translate-y-[-50%] right-5  hover:cursor-pointer z-20 ${
+                className={`lg:hidden  hover:cursor-pointer z-20 ${
                   state ? "text-transparent" : "text-text_primary"
                 } duration-150 md:w-6 md:h-6 w-5 h-5`}
                 onClick={changeState}
               />
+              </Flex>
               <List
                 className={`lg:flex-row flex-col lg:justify-end flex gap-8 lg:relative absolute lg:bg-bg_primary bg-bg_primary lg:w-full lg:h-full h-[100vh] top-0 lg:left-0 lg:items-center ${
                   state ? "left-[0%]" : "left-[-100%]"
@@ -327,11 +332,14 @@ let logout = async ()=>{
                         showMenu={state}
                       ></DropDownMenu>
                     )}
+                    {!state && (
+                      
                     <ListItem
                       
                     >
                      <CartDropDownMenu uid={userId}/> 
                     </ListItem>
+                    )}
                   </>
                 )}
               </List>
