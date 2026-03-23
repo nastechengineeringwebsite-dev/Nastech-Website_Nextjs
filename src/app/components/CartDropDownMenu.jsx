@@ -73,9 +73,26 @@ const CartDropDownMenu = ({ uid }) => {
 
     checkDevice();
     window.addEventListener("resize", checkDevice);
-    console.log(largeDevice);
-    return () => window.removeEventListener("resize", checkDevice);
-  }, []);
+
+
+    if (!largeDevice) {
+      if (showCart) {
+        // Lock scroll
+        document.body.style.overflow = "hidden";
+        document.body.style.height = "100vh";
+      } else {
+        // Unlock scroll
+        document.body.style.overflow = "";
+        document.body.style.height = "";
+      }
+    }
+    return () => {
+      // Cleanup in case component unmounts
+      document.body.style.overflow = "";
+      document.body.style.height = "";
+      window.removeEventListener("resize", checkDevice);
+    };
+  }, [showCart, largeDevice, userSignedIn]);
 
   return (
     isStorePage &&
@@ -86,7 +103,13 @@ const CartDropDownMenu = ({ uid }) => {
       onMouseLeave={() => {
         handleShowMenu(false, false);
       }}
-      onClick={() => handleShowMenu(true, !showCart)}
+      onClick={() => {
+        if (userSignedIn) {
+          handleShowMenu(true, !showCart);
+        } else {
+          handleShowMenu(true, false);
+        }
+      }}
       className="relative "
     >
       <Flex
@@ -94,9 +117,13 @@ const CartDropDownMenu = ({ uid }) => {
     after:bottom-[-13px] lg:after:scale-x-0 lg:hover:after:scale-x-110 lg:after:duration-150 lg:py-0 py-2"
         key={"Shopping cart"}
       >
-        <Link href={"/grateful_tokens"}>
+        {userSignedIn ? (
           <FaShoppingCart />
-        </Link>
+        ) :
+          (<Link href={"/grateful_tokens/login"}>
+            <FaShoppingCart />
+          </Link>)
+        }
         {userSignedIn && (
           <Flex className="flex absolute bg-bg_secondary text-gray-300 font-medium lg:text-sm text-[10px] lg:p-2 p-1 rounded-full lg:h-[20px] h-[15px] items-center justify-center top-0 right-0 translate-x-[100%] translate-y-[-50%]">
             {totalItems()}

@@ -25,6 +25,7 @@ const Login = () => {
   let [loading, setLoading] = useState(false);
 
   let { userSignedIn, setUserSignedIn } = useAuth();
+  let { cartItems, setCartItems } = useCart();
 
   let loginUser = async (e) => {
     e.preventDefault();
@@ -43,7 +44,10 @@ const Login = () => {
         setEmail("");
         setPassword("");
         setUserSignedIn(res.data.user);
-        
+        const cart = await axios.get(`/api/cart/getCart/${res.data.user.id}`)
+        if (cart.data.data) {
+          setCartItems(cart.data.data)
+        }
         setLoading(false);
       } else if (!res.data.user){
         setLoading(false);
