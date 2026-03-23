@@ -15,6 +15,7 @@ import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoMdCloseCircleOutline } from "react-icons/io"
 import { IoCloseCircle } from "react-icons/io5"
+import { usePathname } from "next/navigation";
 
 const CartDropDownMenu = ({ uid }) => {
   const [showCart, setShowCart] = useState(false);
@@ -23,6 +24,9 @@ const CartDropDownMenu = ({ uid }) => {
   let { userSignedIn, setUserSignedIn } = useAuth();
 
   const { cartItems, setCartItems } = useCart();
+
+  const pathname = usePathname();
+  const isStorePage = pathname.includes("grateful_tokens");
 
   let items = cartItems;
 
@@ -74,6 +78,7 @@ const CartDropDownMenu = ({ uid }) => {
   }, []);
 
   return (
+    isStorePage &&
     <div
       onMouseEnter={() => {
         handleShowMenu(false, true);

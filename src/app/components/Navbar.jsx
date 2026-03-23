@@ -26,6 +26,8 @@ const Navbar = () => {
   axios.defaults.withCredentials = true;
 
   const router = useRouter()
+  const pathName = usePathname()
+  const isStorePage = pathName.includes("grateful_tokens")
 
   let [state, setState] = useState(false);
   let [accountList, setAccountList] = useState(false);
@@ -55,7 +57,6 @@ const Navbar = () => {
     setAccountList(!accountList);
   }
 
-  const path = usePathname();
 
 let logout = async ()=>{
 	await axios.get('/api/logout')
@@ -69,16 +70,16 @@ let logout = async ()=>{
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      function checkWindowSize() {
-        if (window.innerWidth < 1024) {
-          setState(false);
-        } else {
-          setState(false);
-        }
-      }
-      checkWindowSize();
+      // function checkWindowSize() {
+      //   if (window.innerWidth < 1024) {
+      //     setState(false);
+      //   } else {
+      //     setState(false);
+      //   }
+      // }
+      // checkWindowSize();
 
-      window.addEventListener("resize", checkWindowSize);
+      // window.addEventListener("resize", checkWindowSize);
 
       window.addEventListener("scroll", () => {
         if (window.scrollY == 0 || state) {
@@ -107,7 +108,7 @@ let logout = async ()=>{
     };
 
     check();
-  }, [refresh,  userSignedIn?.id]);
+  }, []);
 
   return (
     <>
@@ -148,7 +149,7 @@ let logout = async ()=>{
                 ></Image>
               </div>
               </Link>
-              {usePathname().includes("grateful_tokens") &&
+              {isStorePage &&
               (
                 <>
                 
@@ -173,8 +174,7 @@ let logout = async ()=>{
               </Flex>
               <Flex className={'flex flex-row gap-x-8 lg:hidden items-center justify-end'}>
 
-              <CartDropDownMenu uid={userId}/>
-              {/* absolute top-[50%] translate-y-[-50%] right-5 */}
+               <CartDropDownMenu uid={userId}/>
               <FaBars
                 className={`lg:hidden  hover:cursor-pointer z-20 ${
                   state ? "text-transparent" : "text-text_primary"
@@ -191,7 +191,7 @@ let logout = async ()=>{
                   className="lg:hidden absolute top-4 right-4 text-text_primary w-6 h-6 hover:cursor-pointer z-50"
                   onClick={changeState}
                 />
-                {!store_page && !usePathname().includes("grateful_tokens") ? (
+                {!store_page && !isStorePage ? (
                   <>
                     <ListItem
                       className=" text-text_primary font-semibold text-[16px] relative after:absolute after:w-full lg:after:h-[3px] after:h-[1px] lg:after:bg-text_primary after:bg-[#92A2B8] lg:after:bottom-[-5px]
@@ -288,6 +288,8 @@ let logout = async ()=>{
                         onClick={() => {
                           setStore_page(false);
                           setRefresh(!refresh);
+                          linkChangeState()
+                          
                         }}
                       >
                         Main Page
@@ -304,6 +306,8 @@ let logout = async ()=>{
                         onClick={() => {
                           setStore_page(false);
                           setRefresh(!refresh);
+                          linkChangeState();
+                         
                         }}
                       >
                         Products
@@ -337,7 +341,7 @@ let logout = async ()=>{
                     <ListItem
                       
                     >
-                     <CartDropDownMenu uid={userId}/> 
+                      <CartDropDownMenu uid={userId}/> 
                     </ListItem>
                     )}
                   </>
