@@ -7,9 +7,9 @@ const AnimatePage = ({ children }) => {
 	const [isClient, setIsClient] = useState(false)
 
 	const animations = {
-		initial: { opacity: 0, x: 100 },
-		animate: { opacity: 1, x: 0 },
-		exit: { opacity: 0, x: -100 },
+		initial: { opacity: 0, x: "30%" },
+		animate: { opacity: 1, x: "0%" },
+		exit: { opacity: 0, x: "-30%" },
 	}
 
 	useEffect(() => {
@@ -33,15 +33,19 @@ const AnimatePage = ({ children }) => {
 	// )
 
 	return (
+		<div className={"relative overflow-x-hidden"}>
+
 		<motion.div
 			variants={animations}
 			initial='initial'
 			animate='animate'
 			exit='exit'
 			transition={{ duration: 0.8 }}
+			
 		>
 			{children}
 		</motion.div>
+		</div>
 	)
 }
 

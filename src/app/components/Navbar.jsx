@@ -58,12 +58,12 @@ const Navbar = () => {
   }
 
 
-let logout = async ()=>{
-	await axios.get('/api/logout')
-	router.push("/grateful_tokens/login")
-	setUserSignedIn(false)
-  setCartItems([])
-}
+  let logout = async () => {
+    await axios.get('/api/logout')
+    router.push("/grateful_tokens/login")
+    setUserSignedIn(false)
+    setCartItems([])
+  }
 
 
 
@@ -108,14 +108,14 @@ let logout = async ()=>{
     };
 
     check();
+    console.log("Rerender")
   }, []);
 
   return (
     <>
       <div
-        className={`lg:hidden w-[100vw] h-[100vh] top-0 left-0  ${
-          state ? "bg-black/50 z-40 fixed" : "bg-transparent z-[-1] absolute"
-        } duration-300`}
+        className={`lg:hidden w-[100vw] h-[100vh] top-0 left-0  ${state ? "bg-black/50 z-40 fixed" : "bg-transparent z-[-1] absolute"
+          } duration-300`}
         id={"Nav-background"}
         onClick={() => {
           setState(false);
@@ -123,69 +123,67 @@ let logout = async ()=>{
       ></div>
       <nav>
         <div
-          className={`w-full lg:bg-bg_primary ${
-            state ? "bg-transparent" : "bg-bg_primary"
-          } top-[0%] z-50 lg:static lg:shadow-none ${
-            navShadow ? "shadow-xl" : "shadow-none"
-          } fixed duration-300`}
+          className={`w-full lg:bg-bg_primary ${state ? "bg-transparent" : "bg-bg_primary"
+            } top-[0%] z-50 lg:static lg:shadow-none ${navShadow ? "shadow-xl" : "shadow-none"
+            } fixed duration-300`}
         >
           <ScrollToTopButton navmenu={state}></ScrollToTopButton>
           <Container>
-            <Flex className="lg:py-4 py-5 justify-between items-center flex">
+            <Flex className="lg:py-4 py-5 items-center flex justify-between ">
               <Flex className={"flex gap-x-4 items-center h-[96px]"}>
 
-              
-              <Link href={"/"}>
-              <div className={"lg:w-24 lg:h-24 md:w-20 w-16"}>
 
-                <Image
-                  src={"/images/Nas Tech Logo.png"}
-                  width={148}
-                  height={118}
-                  alt={"Nas Tech Engineering Logo"}
-                  
-                  loading="eager"
-                  priority
-                ></Image>
-              </div>
-              </Link>
-              {isStorePage &&
-              (
-                <>
-                
-              <Link href={"/grateful_tokens"}>
-                
-                <div className=" lg:w-[200px] w-[120px] rounded-[10px] overflow-hidden">
+                <Link href={"/"}>
+                  <div className={"lg:w-24 lg:h-24 md:w-20 w-16"}>
 
-                <Image
-                  src={"/images/GratefulTokens/GratefulTokensLogo.jpg"}
-                  width={500}
-                  height={400}
-                  alt={"Grateful Tokens Logo"}
-                  className="fit"
-                  loading="eager"
-                  priority
-                ></Image>
-                </div>
-                
-              </Link>
-              </>)
-              }
+                    <Image
+                      src={"/images/Nas Tech Logo.png"}
+                      width={148}
+                      height={118}
+                      alt={"Nas Tech Engineering Logo"}
+
+                      loading="eager"
+                      priority
+                    ></Image>
+                  </div>
+                </Link>
+                {isStorePage &&
+                  (
+                    <>
+
+                      <Link href={"/grateful_tokens"}>
+
+                        <div className=" lg:w-[200px] w-[120px] rounded-[10px] overflow-hidden">
+
+                          <Image
+                            src={"/images/GratefulTokens/GratefulTokensLogo.jpg"}
+                            width={500}
+                            height={400}
+                            alt={"Grateful Tokens Logo"}
+                            className="fit"
+                            loading="eager"
+                            priority
+                          ></Image>
+                        </div>
+
+                      </Link>
+
+                    </>)
+                }
               </Flex>
-              <Flex className={'flex flex-row gap-x-8 lg:hidden items-center justify-end'}>
 
-               <CartDropDownMenu uid={userId}/>
-              <FaBars
-                className={`lg:hidden  hover:cursor-pointer z-20 ${
-                  state ? "text-transparent" : "text-text_primary"
-                } duration-150 md:w-6 md:h-6 w-5 h-5`}
-                onClick={changeState}
-              />
+              <Flex className={'flex flex-row gap-x-8 lg:hidden items-center justify-end'}>
+                <CartDropDownMenu uid={userId} />
+                <FaBars
+                  className={` hover:cursor-pointer z-20 ${state ? "text-transparent" : "text-text_primary"
+                    } duration-150 md:w-6 md:h-6 w-5 h-5`}
+                  onClick={changeState}
+                />
+
               </Flex>
               <List
-                className={`lg:flex-row flex-col lg:justify-end flex gap-8 lg:relative absolute lg:bg-bg_primary bg-bg_primary lg:w-full lg:h-full h-[100vh] top-0 lg:left-0 lg:items-center ${
-                  state ? "left-[0%]" : "left-[-100%]"
-                } lg:duration-0 duration-500 w-[70%] max-w-[300px] lg:max-w-[1000px] lg:shadow-none shadow-2xl shadow-black/70 lg:pt-0 lg:pl-0 pt-12 px-5 overflow-scroll lg:overflow-visible scrollbar-hide`}
+                className={`lg:flex-row flex-col lg:justify-end flex gap-8 lg:relative absolute lg:bg-bg_primary bg-bg_primary lg:w-full lg:h-full h-[100vh] top-0 lg:left-0 lg:items-center ${state ? "left-[0%]" : "left-[-100%]"
+                  } lg:duration-0 duration-500 w-[70%] max-w-[300px] lg:max-w-[1000px] lg:shadow-none shadow-2xl shadow-black/70 lg:pt-0 lg:pl-0 pt-12 px-5 overflow-scroll lg:overflow-visible scrollbar-hide`}
               >
                 <IoMdCloseCircleOutline
                   className="lg:hidden absolute top-4 right-4 text-text_primary w-6 h-6 hover:cursor-pointer z-50"
@@ -254,10 +252,10 @@ let logout = async ()=>{
                         className="hover:font-semibold lg:hover:font-semibold"
                         onClick={() => {
                           setStore_page(true);
-                          setRefresh(!refresh);
+                          linkChangeState();
                         }}
                       >
-                        Product Store
+                        Product Store   
                       </Link>
                     </ListItem>
 
@@ -287,9 +285,9 @@ let logout = async ()=>{
                         className="hover:font-semibold lg:hover:font-semibold"
                         onClick={() => {
                           setStore_page(false);
-                          setRefresh(!refresh);
+
                           linkChangeState()
-                          
+
                         }}
                       >
                         Main Page
@@ -305,9 +303,9 @@ let logout = async ()=>{
                         className="hover:font-semibold lg:hover:font-semibold"
                         onClick={() => {
                           setStore_page(false);
-                          setRefresh(!refresh);
+
                           linkChangeState();
-                         
+
                         }}
                       >
                         Products

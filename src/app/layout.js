@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://www.nastechengineeringbd.com" />
       </head>
 
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} antialiased overflow-x-hidden`}>
           <AuthProvider>
           <CartProvider>
           <InitialLoadingAnimation />
