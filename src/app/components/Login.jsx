@@ -13,6 +13,8 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
+import validateEmail from "../utils/validateEmail";
+import {Spinner} from "@heroui/react";
 
 const Login = () => {
   const router = useRouter();
@@ -22,6 +24,8 @@ const Login = () => {
   let [password, setPassword] = useState("");
 
   let [loading, setLoading] = useState(false);
+
+  let [pageLoading, setPageLoading] = useState(false)
 
   let { userSignedIn, setUserSignedIn } = useAuth();
   let { cartItems, setCartItems } = useCart();
@@ -63,12 +67,19 @@ const Login = () => {
   };
 
   const handleForgetPassword = async ()=>{
+    
+    if (!email || !validateEmail(email)){
+      toast.error("Need to input a valid email")
+      return
+    }
+    setPageLoading(true)
     const res = await axios.post("/api/otp",{email: email}).then((res)=>{
       if (res.status == 201){
         console.log(res.data)
         router.push(`/grateful_tokens/otp?email=${encodeURIComponent(email)}`)
       }
     })
+
   }
   return (
     
@@ -100,7 +111,9 @@ const Login = () => {
             value={password}
             onChange={(val) => setPassword(val.target.value)}
           ></InputBox>
+          {pageLoading ?<Spinner className="text-blue-500 absolute bottom-[-30px] right-0" size="sm" /> : 
           <span className="absolute bottom-[-30px] right-0 text-text_secondary text-sm font-semibold hover:cursor-pointer" onClick={handleForgetPassword}>Forgot Password?</span>
+          }
           </Flex>
         </Flex>
 
