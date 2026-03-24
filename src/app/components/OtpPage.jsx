@@ -20,7 +20,7 @@ const OtpPage = ({ email }) => {
         await axios.post('/api/otp/verify', { email: email, userOtp: otp }).then((res) => {
             if (res.data.verified) {
                 setInvalid(false)
-                router.push(`/grateful_tokens/password-change?email=${encodeURIComponent(email)}`)
+                router.push(`/grateful_tokens/password-change?reset=${res.data.resetLink}`)
             }
             else{
                 setInvalid(true)

@@ -11,6 +11,8 @@ export async function PUT(req){
                 password: await bcrypt.hash(body.password, 10),
             },
         });
+        await prisma.otp.delete({where: {email: body.email}})
+        
         return new Response(JSON.stringify({ message: "Password updated successfully" }), { status: 201 });
     } catch (error) {
         console.log(error)

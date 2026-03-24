@@ -17,8 +17,8 @@ export async function POST(req, {params}){
         if (otp.otpCode !== Number(body.userOtp)){
             return new Response(JSON.stringify({ message: "Otp not verified", verified: false }), { status: 201 })
         }
-        console.log("matched")
-        return new Response(JSON.stringify({ message: "Otp found", verified: true }), { status: 201 })
+        
+        return new Response(JSON.stringify({ message: "Otp found", verified: true, resetLink: otp.resetLink }), { status: 201 })
     }
     catch (error) {
         console.error(error);

@@ -3,6 +3,7 @@ import prisma from "@/app/lib/prisma";
 import otpGenerator from "otp-generator";
 import { Resend } from 'resend';
 import { OtpEmail } from "../../../emails/OtpEmail";
+import crypto from "crypto"
 
 
 
@@ -31,16 +32,17 @@ export async function POST(req, { params }) {
           },
           data: {
             otpCode: Number(code),
+            
           },
         })
       }
       else{
-
+        
         otp = await prisma.otp.create({
           data: {
             email: email,
-            otpCode: Number(code)
-  
+            otpCode: Number(code),
+            resetLink: crypto.randomBytes(32).toString("hex"),
           },
         })
       }
