@@ -1,16 +1,20 @@
 import prisma from "../../../lib/prisma";
+import bcrypt from "bcrypt"
+
 
 export async function PUT(req, { params }) {
   try {
     const { uid } = await params;
     const body = await req.json();
+
     const user_update = await prisma.user.update({
       where: { id: uid },
       data: {
-        username: body.username,
-        email: body.email,
-        password: body.password
-      },
+        ...(body.username && { username: body.username }),
+        ...(body.email && { email: body.email }),
+        ...(body.password && {
+          password: await bcrypt.hash(body.password, 10),
+        }),}
     });
     return new Response(
       JSON.stringify({ message: "User updated successfully" }),

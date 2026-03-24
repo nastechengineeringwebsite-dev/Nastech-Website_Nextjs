@@ -17,7 +17,6 @@ import { useCart } from "../context/CartContext";
 const Login = () => {
   const router = useRouter();
   const redirect = typeof window!=="undefined"? new URLSearchParams(window.location.search).get("redirect"):null
-  console.log(redirect)
   let [show_password, setShow_password] = useState(false);
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -62,6 +61,15 @@ const Login = () => {
     }
     setLoading(false);
   };
+
+  const handleForgetPassword = async ()=>{
+    const res = await axios.post("/api/otp",{email: email}).then((res)=>{
+      if (res.status == 201){
+        console.log(res.data)
+        router.push(`/grateful_tokens/otp?email=${encodeURIComponent(email)}`)
+      }
+    })
+  }
   return (
     
 
@@ -84,12 +92,16 @@ const Login = () => {
           >
             {!show_password ? <FaEye /> : <FaEyeSlash />}
           </div>
+          <Flex className={"flex flex-col w-full relative"}>
+
           <InputBox
             placeholder={"Password"}
             type={show_password ? "text" : "password"}
             value={password}
             onChange={(val) => setPassword(val.target.value)}
           ></InputBox>
+          <span className="absolute bottom-[-30px] right-0 text-text_secondary text-sm font-semibold hover:cursor-pointer" onClick={handleForgetPassword}>Forgot Password?</span>
+          </Flex>
         </Flex>
 
         <Button

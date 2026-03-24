@@ -126,9 +126,19 @@ model CartItem {
   @@index([userId])
 }
 
+model Otp {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  email   String  @unique
+  otpCode Int
+  used    Boolean @default(false)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+}
 enum OrderStatus {
   Processing
   Delivered
   Cancelled
   Pending
 }
+
