@@ -35,12 +35,14 @@ const CheckoutInfo = () => {
 
     const items = cartItems;
 
+    
+
     const findSum = () => {
         return cartItems.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0
+            (sum, item) => sum + item.price * item.quantity,
+            0
         );
-      };
+    };
 
     const handleCartItemDelete = async (e, cartId) => {
 
@@ -68,7 +70,7 @@ const CheckoutInfo = () => {
 
     const handleOrder = (e) => {
         e.preventDefault()
-        
+
         if (fullName && email && phone && country && address && city && zip && transactionId) {
             // router.push(`/grateful_tokens/order-success/100`)
             try {
@@ -97,7 +99,7 @@ const CheckoutInfo = () => {
                     setZip('')
                     setTransactionId('')
                     setTotal('')
-                    
+
                     setCartItems([])
 
                     router.push(`/grateful_tokens/order-success/${res.data.data.orderInvoiceNo}`)
@@ -120,26 +122,38 @@ const CheckoutInfo = () => {
                     setLoading(false)
                     toast.error("Failed to place order")
                     console.log(err);
-                })}
+                })
+            }
 
-                catch (err) {
-                    setLoading(false)
-                    toast.error("Failed to place order")
-                    console.log(err);
-                }
+            catch (err) {
+                setLoading(false)
+                toast.error("Failed to place order")
+                console.log(err);
+            }
 
 
 
-            
+
         }
         else {
             toast.error("Please fill all the fields")
         }
     }
 
-    useEffect(()=>{
-        setTotal(findSum()+60)
-    })
+    useEffect(() => {
+        if (!userSignedIn) {
+            router.push('/grateful_tokens/login')
+            
+        }
+    
+        if (!cartItems.length) {
+            toast.info("Your cart is empty!")
+            router.push('/grateful_tokens')
+            
+        }
+
+        setTotal(findSum() + 60)
+    },[])
     return (
 
         <Flex className={"flex flex-col lg:mt-6 mt-32 mb-40"}>
