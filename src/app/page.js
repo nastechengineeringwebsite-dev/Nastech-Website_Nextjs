@@ -13,7 +13,7 @@ export default function Home() {
       <Flex className={"flex flex-col gap-y-[100px]"}>
         <Banner />
         <AnimatePage>
-          <Flex className={"flex flex-col gap-y-[100px]"}>
+          <Flex className={"flex flex-col gap-y-[60px]"}>
 
           <Home_About_Us />
           <Home_Technical_Trainning />

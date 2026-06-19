@@ -5,11 +5,11 @@ import AnimatePage from './AnimatePage'
 
 const Banner = () => {
   return (
-    <div className='bg-[#C2CCCB] w-full'>
+    <div className='md:bg-[#C2CCCB] bg-none w-full'>
     <Container>
       <AnimatePage>
         <Image
-        className='w-full'
+        className='rounded-3xl md:rounded-none md:mt-0 mt-40 w-full'
             src={'/images/Banner.jpg'}
             alt={'Banner'}
             width={1920}

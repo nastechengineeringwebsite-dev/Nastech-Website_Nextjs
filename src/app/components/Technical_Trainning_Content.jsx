@@ -103,6 +103,16 @@ const Technical_Trainning_Content = () => {
             "Gain the foundational skills to test your ideas before you build them. Our beginner course in Engineering Design Analysis and Simulation teaches you how to analyze and predict the performance of your designs. Learn to identify potential flaws and optimize your concepts using industry-standard tools, preparing you for more advanced engineering challenges."
           }
         />
+        <Product_Card
+          courseDuration={"N/A"}
+          courseFee={"N/A"}
+          cardImage={"Technical Solutions/pcb_design_and_analysis.jpg"}
+          heading={"Industrial PCB Design & Manufacturing(Online Course)"}
+          pageLink={"nas_technical_trainning/industrial_pcb_design_manufacturing"}
+          shortDis={
+            "Master the complete electronics lifecycle in this practical PCB design course. Learn to read manufacturer datasheets, build custom footprint libraries, and route high-reliability single and double-layer boards using professional EDA tools. From Design for Manufacturing (DFM) constraints to budgeting with BOQs, you will gain the exact skills needed to convert schematic designs into production-ready Gerber files optimized for commercial fabrication houses like JLCPCB."
+          }
+        />
         {/* <Product_Card
           courseDuration={"1 year"}
           courseFee={"10,000 BDT"}

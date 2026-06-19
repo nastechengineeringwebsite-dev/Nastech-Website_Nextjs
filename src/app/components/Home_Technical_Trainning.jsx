@@ -142,6 +142,12 @@ const Home_Technical_Trainning = () => {
                   cardImage={"Technical Solutions/engineering_design_analysis_beginnar.jpg"}
                   pageLink={"nas_technical_trainning/engineering_design_analysis_and_simulation_beginner"}
                 />
+                <Home_Product_Card
+                  heading={"Industrial PCB Design & Manufacturing(Online Course)"}
+                  shortDis={`Learn how to design and produce high-quality PCBs for industrial applications with our online course. From component selection to assembly...`}
+                  cardImage={"Technical Solutions/pcb_design_and_analysis.jpg"}
+                  pageLink={"nas_technical_trainning/industrial_pcb_design_manufacturing"}
+                />
                 {/* <Home_Product_Card
                   heading={"Engineering Design Analysis and Simulation: Intermediate  "}
                   shortDis={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula commodo leo in sodales. Quisque sed lorem quis leo facilisis mattis eu ac elit.`}
