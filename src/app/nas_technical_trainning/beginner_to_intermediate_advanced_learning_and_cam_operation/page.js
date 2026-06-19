@@ -37,7 +37,7 @@ const page = () => {
       <Container>
         <Flex
           className={
-            "flex mt-30 lg:mt-10 items-center  font-bold text-darker_blue text-[14px] gap-1"
+            "flex mt-40 lg:mt-10 items-center  font-bold text-darker_blue text-[14px] gap-1"
           }
         >
           <Link href={"/nas_technical_trainning"}>
